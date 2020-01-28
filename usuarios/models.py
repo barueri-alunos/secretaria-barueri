@@ -19,13 +19,13 @@ class PessoaJuridica(User):
 
 class Endereco(models.Model):
     logradouro = models.CharField(max_length=255)
-    numero = models.IntegerField()
+    numero = models.CharField(max_length=20)
     complemento = models.CharField(max_length=40)
     cidade = models.CharField(max_length=40)
     estado = models.CharField(max_length=40)
     cep = models.CharField(max_length=9)
 
-    usuario  = models.ForeignKey(User)
+    usuario  = models.ForeignKey(User,on_delete=models.CASCADE)
 
     class Meta:
             
