@@ -23,7 +23,7 @@ class Endereco(models.Model):
     complemento = models.CharField(max_length=40)
     cidade = models.CharField(max_length=40)
     estado = models.CharField(max_length=40)
-    cep = models.IntegerField()
+    cep = models.CharField(max_length=9)
 
     usuario  = models.ForeignKey(User)
 
