@@ -6,5 +6,5 @@ from usuarios.views import *
 urlpatterns = [
     path('cadastro/pessoa_juridica', cadastro_empresa),
     path('admin/', admin.site.urls),
-    path('cadastrar/pessoafisica',cadastrar_pessoa_fisica),
+    path('cadastrar/pf',cadastrar_pessoa_fisica),
 ]

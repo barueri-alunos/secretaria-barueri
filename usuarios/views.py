@@ -1,7 +1,6 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-from usuarios.forms import PessoaJuridicaForm
-from usuarios.models import PessoaJuridica
+from usuarios.forms import *
+from usuarios.models import *
 # Create your views here.
 
 def cadastro_empresa(request):
@@ -16,27 +15,15 @@ def cadastro_empresa(request):
         }
         return render(request, 'cadastro_empresa.html', args)
     return render(request, 'cadastro_empresa.html', args)
-=======
-from usuarios.forms import PessoaFisicaForm
->>>>>>> criando cadastro arquivo.html
 
 def cadastrar_pessoa_fisica(request):
     form = PessoaFisicaForm(request.POST or None)
     if form.is_valid():
         form.save()
         args = {
-             'form': form, 
-             'msg': 'Cadastro foi realizado com sucesso!'
+            'form':form,
+            'msg':'O cadastro foi realizado com sucesso'
         }
-        render(request, 'cadastro.html', args)
-        args = {'form': form}
-        return render('request.cadastro.html', args)
-<<<<<<< HEAD
-        args = {form'form'}
-=======
-        
-
-
-
-
->>>>>>> criando cadastro arquivo.html
+        return render(request, 'cadastro.html', args)
+    args = {'form':form}
+    return render(request, 'cadastro.html', args)
