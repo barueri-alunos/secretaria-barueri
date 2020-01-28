@@ -4,5 +4,5 @@ from usuarios.models import PessoaFisica
 class PessoaFisicaForm(forms.ModelForm):
     class Meta:
         model = PessoaFisica
-        fields = '__all__'
+        fields = [ 'first_name', 'last_name', 'username', 'password']
         
