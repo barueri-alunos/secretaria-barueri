@@ -11,7 +11,7 @@ class PessoaJuridica(User):
     razao_social = models.CharField(max_length=255)
     cnpj = models.CharField(max_length=18)
     contato_empresa = models.CharField(max_length=14)
-    ramo_ativiade = models.CharField(max_length=255)
+    ramo_atividade = models.CharField(max_length=255)
     numero_funcionarios = models.IntegerField()
     numero_pcds = models.IntegerField()
 
