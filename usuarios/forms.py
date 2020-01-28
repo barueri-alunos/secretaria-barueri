@@ -1,5 +1,5 @@
 from django import forms
-from pessoalfisca.models import PessoaFisica
+from usuarios.models import PessoaFisica
 
 class PessoaFisicaForm(forms.ModelForm):
     class Meta:

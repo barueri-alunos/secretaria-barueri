@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from pessoafisisca.forms import pessoafisiscaForm
-from pessoafisica.models import pessoafisica
+from usuarios.forms import PessoaFisicaForm
 
 def cadastrar_pessoa_fisica(request):
     form = PessoaFisicaForm(request.POST or None)
@@ -13,9 +12,8 @@ def cadastrar_pessoa_fisica(request):
         render(request, 'cadastro.html', args)
         args = {'form': form}
         return render('request.cadastro.html', args)
-        args = {form'form'}
+        
 
 
-''
 
 

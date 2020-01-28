@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+=======
+from usuarios.views import cadastrar_pessoa_fisica
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('cadastrar/pessoafisica',cadastrar_pessoa_fisica),
+>>>>>>> 6903fc8... Importar cadastar_pessoa_fisica da views para urls
 ]
