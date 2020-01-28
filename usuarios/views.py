@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from usuarios.forms import PessoaJuridicaForm
 from usuarios.models import PessoaJuridica
 # Create your views here.
@@ -15,6 +16,9 @@ def cadastro_empresa(request):
         }
         return render(request, 'cadastro_empresa.html', args)
     return render(request, 'cadastro_empresa.html', args)
+=======
+from usuarios.forms import PessoaFisicaForm
+>>>>>>> criando cadastro arquivo.html
 
 def cadastrar_pessoa_fisica(request):
     form = PessoaFisicaForm(request.POST or None)
@@ -27,4 +31,12 @@ def cadastrar_pessoa_fisica(request):
         render(request, 'cadastro.html', args)
         args = {'form': form}
         return render('request.cadastro.html', args)
+<<<<<<< HEAD
         args = {form'form'}
+=======
+        
+
+
+
+
+>>>>>>> criando cadastro arquivo.html
