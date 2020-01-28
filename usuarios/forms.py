@@ -23,3 +23,9 @@ class PessoaJuridicaForm(forms.ModelForm):
             'numero_funcionarios', 
             'numero_pcds'
             ]
+
+class EnderecoForm(forms.ModelForm):
+
+    class Meta:
+        model = Endereco
+        fields = '__all__'
