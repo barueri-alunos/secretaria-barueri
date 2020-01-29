@@ -27,7 +27,6 @@ class Endereco(models.Model):
 
     usuario  = models.ForeignKey(User,on_delete=models.CASCADE)
 
-    class Meta:
-            
-            verbose_name ='Endereço'
+    class Meta:    
+        verbose_name ='Endereço'
          
