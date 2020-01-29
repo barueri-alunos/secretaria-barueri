@@ -29,15 +29,12 @@ def cadastrar_pessoa_fisica(request):
     return render(request, 'cadastro.html', args)
 
 def acessar_cadastro(request): 
-
     form = AcessibilidadeForm(request.POST or None)
-
     if form.is_valid():
         form.save()
         args ={
-            'form:'form,
+            'form':form,
             'msg':'O cadastro foi realizado com sucesso'
-
         }
         return render(request,'acessibilidade.html',args)
     args ={'form':form}
