@@ -4,7 +4,7 @@ from usuarios.models import PessoaJuridica
 from usuarios.views import *
 
 urlpatterns = [
-    path('cadastro/pessoa_juridica', cadastro_empresa),
+    path('cadastro/pf',cadastrar_pessoa_fisica),
+    path('cadastro/pj', cadastro_empresa),
     path('admin/', admin.site.urls),
-    path('cadastrar/pf',cadastrar_pessoa_fisica),
 ]
