@@ -13,8 +13,8 @@ def cadastrar_empresa(request):
         args = {
             'msg': 'Cadastro realizado com sucesso'
         }
-        return render(request, 'cadastro_empresa.html', args)
-    return render(request, 'cadastro_empresa.html', args)
+        return render(request, 'cadastro_pj.html', args)
+    return render(request, 'cadastro_pj.html', args)
 
 def cadastrar_pessoa_fisica(request):
     form = PessoaFisicaForm(request.POST or None)
