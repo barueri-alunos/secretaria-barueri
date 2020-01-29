@@ -6,13 +6,13 @@ class PessoaFisica(User):
         verbose_name = 'Pessoa Física'
 
 class PessoaJuridica(User):
-    nome_fantasia = models.CharField(max_length=255)
-    razao_social = models.CharField(max_length=255)
-    cnpj = models.CharField(max_length=18)
-    contato_empresa = models.CharField(max_length=14)
-    ramo_atividade = models.CharField(max_length=255)
-    numero_funcionarios = models.IntegerField()
-    numero_pcds = models.IntegerField()
+    nome_fantasia = models.CharField(max_length=255, verbose_name='Nome fantasia da empresa')
+    razao_social = models.CharField(max_length=255, verbose_name='Razão social da empresa')
+    cnpj = models.CharField(max_length=18, verbose_name='CNPJ')
+    contato_empresa = models.CharField(max_length=14, verbose_name='Contato da empresa')
+    ramo_atividade = models.CharField(max_length=255, verbose_name='Ramo de atividade')
+    numero_funcionarios = models.IntegerField(verbose_name='Número de funcionários')
+    numero_pcds = models.IntegerField(verbose_name='Número de PCDs')
 
     class Meta:
         verbose_name = 'Pessoa Juridica'
