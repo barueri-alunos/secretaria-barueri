@@ -43,13 +43,13 @@ class Acessibilidade(models.Model):
         ('OUTRA. QUAL ?', 'Outra. Qual?'),
     )
     tipo_pcd = models.CharField(max_length=255,choices=tipos_deficiencia) 
-    tipo_deficiencia = models.CharField(max_length=255, verbose_name='Qual sua defisiencia ?',choices=tipos_deficiencia)
+    tipo_deficiencia = models.CharField(max_length=255, verbose_name='Qual sua defic,iencia ?',choices=tipos_deficiencia)
     resposta = (
-        ('SIM', 'Sim'),
-        ('NAO', 'NAO'),
+        ('TRUE', 'Sim'),
+        ('FALSE', 'NAO'),
     )
     cid = models.CharField(max_length=255, verbose_name='Qual o CID ?')
-    protese = models.CharField(max_length=255, verbose_name='Faz uso de alguma órtese, prótese ou meios auxiliares de locomoção? (ex: cadeira de rodas, muleta, aparelho auditivo, etc',choices=resposta)
-    resticao_fisica = models.CharField(max_length=255, verbose_name='Restrição para alguma atividade? Já teve adoecimento ou fastamento devido trabalho ou fora do trabalho? Acidente de trabalho anterior? (Demais riscos ou limitações observados pelo entrevistador)',choices=resposta)
-    tecnologia = models.CharField(max_length=255, verbose_name='Necessita de Tecnologia Assistiva para o Trabalho? Qual?',choices=resposta)
+    protese = models.BooleanField(default=False ,verbose_name='Faz uso de alguma órtese, prótese ou meios auxiliares de locomoção? (ex: cadeira de rodas, muleta, aparelho auditivo, etc',choices=resposta)
+    restricao_fisica = models.BooleanField(default=False ,verbose_name='Restrição para alguma atividade? Já teve adoecimento ou fastamento devido trabalho ou fora do trabalho? Acidente de trabalho anterior? (Demais riscos ou limitações observados pelo entrevistador)',choices=resposta)
+    tecnologia = models.BooleanField(default=False ,verbose_name='Necessita de Tecnologia Assistiva para o Trabalho? Qual?',choices=resposta)
          
