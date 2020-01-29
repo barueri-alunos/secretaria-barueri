@@ -29,3 +29,10 @@ class EnderecoForm(forms.ModelForm):
     class Meta:
         model = Endereco
         fields = '__all__'
+
+
+class AcessibilidadeForm(forms.ModelForm):
+
+    class Meta:
+        model = Acessibilidade
+        fields = '__all__'
