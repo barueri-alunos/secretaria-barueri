@@ -33,4 +33,3 @@ class AcessibilidadeForm(forms.ModelForm):
         Model = Acessibilidade 
         fields = '__all__'
 
-
