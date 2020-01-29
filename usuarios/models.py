@@ -42,7 +42,7 @@ class Acessibilidade(models.Model):
         ('TRANSTORNO MENTAL', 'Transtorno mental'),
         ('OUTRA. QUAL ?', 'Outra. Qual?'),
     )
-    tipo_pcd = models.CharField(max_length=255,choices=tipos_deficiencia) 
+    outros_tipos_deficiencia = models.CharField(max_length=255,verbose_name='qual tipo?') 
     tipo_deficiencia = models.CharField(max_length=255, verbose_name='Qual sua defic,iencia ?',choices=tipos_deficiencia)
     resposta = (
         ('TRUE', 'Sim'),
