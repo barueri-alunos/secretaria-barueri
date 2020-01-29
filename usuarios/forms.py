@@ -6,7 +6,6 @@ class PessoaFisicaForm(forms.ModelForm):
         model = PessoaFisica
         fields = [ 'first_name', 'last_name', 'username', 'password']
         
-
 class PessoaJuridicaForm(forms.ModelForm):
     class Meta:
         model = PessoaJuridica
@@ -25,7 +24,13 @@ class PessoaJuridicaForm(forms.ModelForm):
             ]
 
 class EnderecoForm(forms.ModelForm):
-
     class Meta:
         model = Endereco
         fields = '__all__'
+
+class AcessibilidadeForm(forms.ModelForm): 
+    class Meta:
+        Model = Acessibilidade 
+        fields = '__all__'
+
+

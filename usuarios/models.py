@@ -35,11 +35,15 @@ class Acessibilidade(models.Model):
     tipos_deficiencia = (
         ('FISICA', 'Fisica'),
         ('AUDITIVA', 'Auditiva'),
-        ('VISUAL', 'Visual'),
+        ( 'Visual', (
+            ('MONOCULAR','monocular'),
+            ('TOTAL','total'),
+            ('BAIXAVISAO','baixa visao')),),
         ('INTELECTUAL', 'Intelectual'),
         ('MULTIPLA', 'Multipla'),
         ('TEA', 'TEA'),
         ('TRANSTORNO MENTAL', 'Transtorno mental'),
+        ('PSICOSOCIAL','psicosocial'),
         ('OUTRA. QUAL ?', 'Outra. Qual?'),
     )
     outros_tipos_deficiencia = models.CharField(max_length=255,verbose_name='qual tipo?') 
