@@ -3,7 +3,7 @@ from usuarios.forms import *
 from usuarios.models import *
 # Create your views here.
 
-def cadastro_empresa(request):
+def cadastrar_empresa(request):
     form = PessoaJuridicaForm(request.POST or None)
     args = {
         'form':form
