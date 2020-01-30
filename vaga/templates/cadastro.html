@@ -1,0 +1,10 @@
+{% block body %}
+    {% if msg %}
+        <h3>{{msg}}</h3>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Enviar Cadastro</button>
+    </form>
+{% endblock body %}
