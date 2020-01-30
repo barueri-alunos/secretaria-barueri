@@ -36,17 +36,32 @@ resposta = (
 
 generos = (
         ("ESCOLHA O GÊNERO", "Escolha o gênero"),
-        ("MASCOLINO", "Mascolino"),
+        ("MASCULINO", "Masculino"),
         ("FEMININO", "Feminino"),
-        ("NÃO BINÁRIO", "Não Binário"),
+        ("NÃO-BINÁRIO", "Não-Binário"),
         ("OUTROS", "Outros"),
-    )
+)
 
 estado = (
         ("ESCOLHA O ESTADO CIVIL", "Escolha o estado Civil"),
         ("SOLTEIRO(A)", "Solteiro(a)"),
         ("CASADO(A)", "Casado(a)"),
         ("DIVORCIADO(A)", "Divociado(a)"),
-        ("VIÙVO(A)", "Viúvo(a)")
+        ("VIÚVO(A)", "Viúvo(a)")
         
-    )    
+)
+
+tipos_deficiencia = (
+    ('FISICA', 'Fisica'),
+    ('AUDITIVA', 'Auditiva'),
+    ( 'Visual', (
+        ('MONOCULAR','monocular'),
+        ('TOTAL','total'),
+        ('BAIXAVISAO','baixa visao')),),
+    ('INTELECTUAL', 'Intelectual'),
+    ('MULTIPLA', 'Multipla'),
+    ('TEA', 'TEA'),
+    ('TRANSTORNO MENTAL', 'Transtorno mental'),
+    ('PSICOSOCIAL','Psicosocial'),
+    ('OUTRA', 'Outra'),
+)
