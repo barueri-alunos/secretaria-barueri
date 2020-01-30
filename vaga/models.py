@@ -1,6 +1,7 @@
 from django.db import models
 from usuarios.models import PessoaJuridica
 from vaga.choices import *
+import datetime
 
 class Vaga(models.Model):
     titulo_vaga = models.CharField(max_length=255, verbose_name='Título da vaga')
