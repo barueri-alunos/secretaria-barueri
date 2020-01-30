@@ -24,6 +24,10 @@ from usuarios.views import cadastrar_pessoa_fisica
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('cadastrar/pessoafisica',cadastrar_pessoa_fisica),
 >>>>>>> 6903fc8... Importar cadastar_pessoa_fisica da views para urls
+=======
+    path('cadastrar/pf',cadastrar_pessoa_fisica),
+>>>>>>> 1635bf6... Corrigir sintax de cadatsro.html, views e urls.
 ]
