@@ -42,3 +42,39 @@ def acessibilidade_cadastro(request):
         return render(request,'acessibilidade.html',args)
     args ={'form':form}
     return render(request,'acessibilidade.html',args)
+
+def editar_empresa(request, id):
+    empresa = Empresa.objects.get(pk=id)
+    form = PessoaFisicaForm(request.POST or None, instance=empresa)
+    
+    args = {
+        'form':form
+    }
+
+    if form.is_valid():
+        form.save()
+        args = {
+            'msg': 'Empresa atualizada com sucesso.'
+        }
+
+    return render(request, 'edicao_empresa.html', args)
+
+def detalhar_empresa(request, id):
+    empresa = Empresa.objects.get(pk=id)
+
+    args = {
+        'empresa': empresa
+    }
+    
+    return render(request, 'detalhe_empresa.html', args)
+
+def remover_empresa(request, id):
+    empresa = Empresa.objects.get(pk=id)
+    empresa.delete()
+
+    args = {
+        'msg': 'O aluno foi deletado com sucesso',
+        'empresa': empresa
+    }
+
+    return render(request, 'detalhe_empresa .html', args)

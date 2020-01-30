@@ -1,0 +1,8 @@
+{% block body %}
+    <h1>{{empresa.nome}}</h1>
+    <a href="{{/editar/pj/empresa.pk}}"><button>Atualizar Cadastro</button></a>
+    <a href="{{/remover/pj/empresa.pk}}"><button>Remover Empresa</button></a>
+    {% if msg %}
+        <h2>{{msg}}</h2>
+    {% endif %}
+{% endblock body %}
