@@ -11,5 +11,5 @@ urlpatterns = [
     path('cadastro/pf/acessibilidade', acessibilidade_cadastro),
     path('cadastro/pj', cadastrar_empresa),
     path('admin/', admin.site.urls),
-    path('avaliacao/secretario', avaliacao_secretaria),
+    path('avaliacao/secretaria', avaliacao_secretaria),
 ]
