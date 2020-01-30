@@ -54,6 +54,22 @@ class Acessibilidade(models.Model):
     protese = models.BooleanField(default=False ,verbose_name='Faz uso de alguma órtese, prótese ou meios auxiliares de locomoção? (ex: cadeira de rodas, muleta, aparelho auditivo, etc',choices=resposta, null=True, blank=True)
     restricao_fisica = models.BooleanField(default=False ,verbose_name='Restrição para alguma atividade? Já teve adoecimento ou fastamento devido trabalho ou fora do trabalho? Acidente de trabalho anterior?',choices=resposta, null=True, blank=True)
     tecnologia = models.BooleanField(default=False ,verbose_name='Necessita de Tecnologia Assistiva para o Trabalho? Qual?',choices=resposta)
-    autonomia_transporte = models.BooleanField(default=False, verbose_name='Tem autonomia / independência para transporte público?',choices=resposta) 
-    automovel = models.BooleanField(default=False, verbose_name='Tem e faz uso de automóvel próprio?', choices=resposta)
-    recursos = models.BooleanField(default=False, verbose_name='Tem recursos financeiros para locomoção?', choices=resposta) 
+
+    class Meta:    
+        verbose_name ='Acessibilidade'
+
+class Avaliacao_Secretaria(models.Model):
+    data_da_avaliacao = models.DateField(max_length=10, verbose_name='Data de avaliação')
+    nome_do_trabalhador = models.ForeignKey(PessoaFisica, on_delete=models.CASCADE, verbose_name='Nome do trabalhador')
+    telefone = models.CharField(max_length=15, verbose_name='Telefone')
+    nome_da_empresa = models.ForeignKey(PessoaJuridica, on_delete=models.CASCADE, verbose_name='Nome da empresa')
+    contratacao = models.DateField(max_length=10,verbose_name='Contratação')
+    cargo_funcao = models.CharField(max_length=255, verbose_name='Cargo / função')
+    atividade_realizada = models.CharField(max_length=255, verbose_name='Atividade Realizada')
+    adaptacao_local_de_trabalho = models.CharField(max_length=255, verbose_name='Adaptaçãp do local de trabalho')
+    atencao_limitacoes_habilidades = models.CharField(max_length=255, verbose_name='Atenção às minhas limitações e habilidades')
+    relacionamento_chefia = models.CharField(max_length=255, verbose_name='Relacionamento com Chefia')
+    relacionamento_colegas = models.CharField(max_length=255, verbose_name='Relacionamento com colegas')
+    
+    class Meta:
+        verbose_name = 'Avaliação da Secretaria'
