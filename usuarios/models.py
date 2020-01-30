@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from choices import *
+from .choices import *
 
 class PessoaFisica(User):
     class Meta:
