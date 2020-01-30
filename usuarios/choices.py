@@ -33,3 +33,20 @@ resposta = (
 (True, 'Sim'),
 (False, 'Não')
 )
+
+generos = (
+        ("ESCOLHA O GÊNERO", "Escolha o gênero"),
+        ("MASCOLINO", "Mascolino"),
+        ("FEMININO", "Feminino"),
+        ("NÃO BINÁRIO", "Não Binário"),
+        ("OUTROS", "Outros"),
+    )
+
+estado = (
+        ("ESCOLHA O ESTADO CIVIL", "Escolha o estado Civil"),
+        ("SOLTEIRO(A)", "Solteiro(a)"),
+        ("CASADO(A)", "Casado(a)"),
+        ("DIVORCIADO(A)", "Divociado(a)"),
+        ("VIÙVO(A)", "Viúvo(a)")
+        
+    )    

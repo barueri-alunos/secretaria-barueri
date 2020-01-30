@@ -4,7 +4,19 @@ from usuarios.models import *
 class PessoaFisicaForm(forms.ModelForm):
     class Meta:
         model = PessoaFisica
-        fields = [ 'first_name', 'last_name', 'username', 'password']
+        fields = [ 
+            'first_name', 
+            'last_name',
+            'username', 
+            'password',
+            'nome',
+            'genero',
+            'data_nascimento',
+            'estado_civil',
+            'cpf',
+            'telefone_fixo',
+            'celular',
+           ]
         
 
 class PessoaJuridicaForm(forms.ModelForm):
@@ -35,4 +47,10 @@ class AcessibilidadeForm(forms.ModelForm):
 
     class Meta:
         model = Acessibilidade
+        fields = '__all__'
+
+class PessoafisicaForm(forms.ModelForm):
+
+    class Meta:
+        model = PessoaFisica
         fields = '__all__'
