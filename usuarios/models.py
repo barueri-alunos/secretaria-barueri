@@ -7,12 +7,12 @@ class PessoaFisica(User):
     class Meta:
         verbose_name = 'Pessoa Física'
 
-    nome = models.CharField(verbose_name = "Nome completo:", max_length=255, default=0)
+    nome = models.CharField(verbose_name = "Nome completo:", max_length=255, default=False)
     cpf = models.CharField(verbose_name = "CPF", max_length=14, default=False)    
     genero = models.CharField(verbose_name = "Genêro", choices= generos, max_length=255, default=False)
     estado_civil = models.CharField(verbose_name = "Estado Civil", choices=estado, max_length=255)
     data_nascimento = models.DateField(verbose_name = "Data de nascimento",max_length=10,default=False)
-    telefone_fixo = models.CharField(verbose_name ="Telefone fixo", max_length=13, default=0)
+    telefone_fixo = models.CharField(verbose_name ="Telefone fixo", max_length=13, default=False)
     celular = models.CharField(verbose_name="Celular", max_length=13, default=False)
     ativo = models.BooleanField(default=False)
     criado_em = models.DateField(default= timezone.now, verbose_name = "Criado", max_length=255)
