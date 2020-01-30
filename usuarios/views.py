@@ -110,3 +110,17 @@ def remover_empresa(request, id):
     }
 
     return render(request, 'detalhe_empresa .html', args)
+
+def avaliacao_secretaria(request):
+
+    form = Avaliacao_SecretariaForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        args ={
+            'form':form,
+            'msg':'Avaliação enviada com sucesso'
+        }
+        return render(request,'avaliacao_secretaria.html',args)
+    args ={'form':form}
+    return render(request,'avaliacao_secretaria.html',args)
