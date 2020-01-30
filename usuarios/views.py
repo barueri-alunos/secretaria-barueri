@@ -35,7 +35,7 @@ def acessibilidade_cadastro(request):
     if form.is_valid():
         form.save()
         args ={
-            'form:'form,
+            'form':form,
             'msg':'O cadastro foi realizado com sucesso'
 
         }
