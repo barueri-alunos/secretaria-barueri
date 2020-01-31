@@ -1,0 +1,12 @@
+{% block body %}
+    <section>
+        <h2>Editar vagas</h2>
+        {% if vaga %}
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit"> Editar vaga</button>
+        </form>
+        {% endif %}
+    </section
+{% endblock body %}
