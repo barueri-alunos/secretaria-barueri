@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+<<<<<<< HEAD
 
 
 urlpatterns = [
@@ -9,7 +10,15 @@ urlpatterns = [
     path('avaliacao/', )
     path('cadastro/pf', cadastrar_pessoa_fisica),
     path('cadastro/pf/acessibilidade', acessibilidade_cadastro),
+=======
+from usuarios.urls import *
+
+urlpatterns = [
+    
+    
+>>>>>>> adicionar arquivo urls pf
     path('cadastro/pj', cadastrar_empresa),
     path('admin/', admin.site.urls),
-        path('avaliacao/secretaria', avaliacao_secretaria),
+    path('avaliacao/secretaria', avaliacao_secretaria),
+    path('cadastro/', include(usuarios.urls)),
 ]
