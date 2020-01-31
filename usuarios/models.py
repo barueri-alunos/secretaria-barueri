@@ -7,7 +7,6 @@ class PessoaFisica(User):
     class Meta:
         verbose_name = 'Pessoa Física'
 
-<<<<<<< HEAD
     nome = models.CharField(verbose_name = "Nome completo:", max_length=255, null=True)
     cpf = models.CharField(verbose_name = "CPF", max_length=25, unique=True, null=True)    
     genero = models.CharField(verbose_name = "Gênero", choices=generos, max_length=25, null=True)
@@ -16,38 +15,7 @@ class PessoaFisica(User):
     telefone_fixo = models.CharField(verbose_name ="Telefone fixo", max_length=25, null=True, blank=True)
     celular = models.CharField(verbose_name="Celular", max_length=25, null=True)
     ativo = models.BooleanField(default=True)
-    criado_em = models.DateField(default= timezone.now, verbose_name = "Criado em")
-    
-=======
-    nome = models.CharField(verbose_name = "Nome:", max_length=255)
-    cpf = models.CharField(verbose_name = "CPF", max_length=14)
-    generos = (
-        ("ESCOLHA O GÊNERO", "Escolha o gênero"),
-        ("MASCOLINO", "Mascolino"),
-        ("FEMININO", "Feminino"),
-        ("NÃO BINÁRIO", "Não Binário"),
-        ("OUTROS", "Outros"),
-    )
-    genero = models.CharField(verbose_name = "Genêro", choices=generos, max_length=255, default=False)
-    estado = (
-        ("ESCOLHA O ESTADO CIVIL", "Escolha o estado Civil"),
-        ("SOLTEIRO(A)", "Solteiro(a)"),
-        ("CASADO(A)", "Casado(a)"),
-        ("DIVORCIADO(A)", "Divociado(a)"),
-        ("VIÙVO(A)", "Viúvo(a)"),
-        
-    )
-    estado_civil = models.CharField(verbose_name = "Estado Civil", choices=estado, max_length=255, default=True)
-    data_nascimento = models.DateField(verbose_name = "Nascimento",max_length=10)
-    telefones = (
-        ("FIXO","Fixo"),
-        ("CELULAR", "Celular"),
-    )
-    telefone = models.CharField(verbose_name ="Telefone", choices=telefones, max_length=13, default=True)
-    numero= models.CharField(verbose_name="Numero", max_length=13)
-    ativo = models.BooleanField(default=False)
-    criado_em = models.DateField(auto_now=True, verbose_name = "Criado")        
->>>>>>> alterar forms Avaliacao_Secretaria e Form
+    criado_em = models.DateField(default= timezone.now, verbose_name = "Criado em")     
 
 class PessoaJuridica(User):
     class Meta:

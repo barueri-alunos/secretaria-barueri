@@ -124,3 +124,16 @@ def avaliacao_secretaria(request):
         return render(request,'avaliacao_secretaria.html',args)
     args ={'form':form}
     return render(request,'avaliacao_secretaria.html',args)
+
+def atualizar_cadastro(request, id):
+    pessoafisica = PessoaFisica.objects.get(pk=id)
+    form = PessoaFisicaForm(request.POST or None, instance=pessoafisica)
+
+    args = {'form':form}
+
+    if form.is_valid():
+        form.save()
+        args = {
+            'msg':'Cadastro atualizado com sucesso'
+        }
+    return render(request, 'atualizarcadastro.html', args)
