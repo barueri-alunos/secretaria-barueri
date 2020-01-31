@@ -1,8 +1,9 @@
+{% extends 'base.html' %}
 {% block body %}
 
     <section>
         <h1>Detalhes da vaga</h1>
-        {% if vaga %}
+        {% if vagas %}
         <div> 
             <h5>Titulo da vaga: {{vaga.titulo_vaga}}</h5>   
             <p>Responsavel pela vaga: {{vaga.responsavel_vaga}}</p>
