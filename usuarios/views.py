@@ -136,4 +136,14 @@ def atualizar_cadastro(request, id):
         args = {
             'msg':'Cadastro atualizado com sucesso'
         }
-    return render(request, 'atualizarcadastro.html', args)
+    return render(request, 'atualizar_cadastro.html', args)        
+    
+def deletar_cadastro(request, id):
+    pessoafisica = PessoaFisica.objects.get(pk=id)
+    pessoafisica.delete()
+    args{
+        'msg':'O cadastro foi deletado com sucesso'
+        'pessoafisica':pessoafisica
+    }
+
+    return render(request, 'deletar_cadastro.html', args)
