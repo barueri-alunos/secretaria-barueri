@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from vaga.forms import VagaForm
 from .models import *
-
+from usuarios.views import PessoaFisica
 
 def cadastro_vaga(request):
     form = VagaForm(request.POST or None)
