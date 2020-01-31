@@ -48,10 +48,12 @@ class Acessibilidade(models.Model):
     class Meta:    
         verbose_name ='Acessibilidade'
 
-    outros_tipos_deficiencia = models.CharField(max_length=255,verbose_name='qual tipo?') 
-    tipo_deficiencia = models.CharField(max_length=255, verbose_name='Qual sua deficiência ?',choices=tipos_deficiencia)
-    cid = models.CharField(max_length=255, verbose_name='Qual o CID ?')
-    protese = models.BooleanField(default=False ,verbose_name='Faz uso de alguma órtese, prótese ou meios auxiliares de locomoção? (ex: cadeira de rodas, muleta, aparelho auditivo, etc',choices=resposta)
-    restricao_fisica = models.BooleanField(default=False ,verbose_name='Restrição para alguma atividade? Já teve adoecimento ou fastamento devido trabalho ou fora do trabalho? Acidente de trabalho anterior? (Demais riscos ou limitações observados pelo entrevistador)',choices=resposta)
+    outros_tipos_deficiencia = models.CharField(max_length=255,verbose_name='qual tipo?', null=True, blank=True) 
+    tipo_deficiencia = models.CharField(max_length=255, verbose_name='Qual sua deficiência ?',choices=tipos_deficiencia, null=True, blank=True)
+    cid = models.CharField(max_length=255, verbose_name='Qual o CID ?', null=True, blank=True)
+    protese = models.BooleanField(default=False ,verbose_name='Faz uso de alguma órtese, prótese ou meios auxiliares de locomoção? (ex: cadeira de rodas, muleta, aparelho auditivo, etc',choices=resposta, null=True, blank=True)
+    restricao_fisica = models.BooleanField(default=False ,verbose_name='Restrição para alguma atividade? Já teve adoecimento ou fastamento devido trabalho ou fora do trabalho? Acidente de trabalho anterior?',choices=resposta, null=True, blank=True)
     tecnologia = models.BooleanField(default=False ,verbose_name='Necessita de Tecnologia Assistiva para o Trabalho? Qual?',choices=resposta)
-
+    autonomia_transporte = models.BooleanField(default=False, verbose_name='Tem autonomia / independência para transporte público?',choices=resposta) 
+    automovel = models.BooleanField(default=False, verbose_name='Tem e faz uso de automóvel próprio?', choices=resposta)
+    recursos = models.BooleanField(default=False, verbose_name='Tem recursos financeiros para locomoção?', choices=resposta) 
