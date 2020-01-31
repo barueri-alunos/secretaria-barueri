@@ -3,9 +3,8 @@
 {% block body %}
     {% if msg %}
         <h1>{{msg}}</h1>
-        <a href="/" >Voltar para a Home</a> 
         {% endif%}
-        {% if form % }
+        <a href="/" >Voltar para a Home</a> 
         <p>Atualize seus dados</p>
         <form method="POST">
 
@@ -14,7 +13,7 @@
             <button>salvar</button>
                        
         </form>
-        {% endif %}
+        
 {% endblock %}
 
 

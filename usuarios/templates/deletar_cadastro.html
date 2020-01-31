@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% if msg %}
+    <h3>{{msg}}</h3>
+    {% endif %}
+    <a href="/">Home</a>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>deletar</button>
+
+    </form>
+{% endblock %}
