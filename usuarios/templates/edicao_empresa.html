@@ -1,0 +1,12 @@
+{% block body %}
+    {% if msg %}
+        <h3>{{msg}}</h3>
+    {% endif %}
+    {% if form %}
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button>Atualizar Cadastro</button>
+        </form>
+    {% endif %}
+{% endblock body %}
