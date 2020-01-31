@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
-    <section>
-        <h2>Editar vagas</h2>
-        {% if vaga %}
+    {% if msg %}
+        <h3>{{msg}}</h3>
+    {% endif %}
+    <a href="/" ><button>Voltar para Home</button></a>
+    {% if form %}
         <form method="POST">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit"> Editar vaga</button>
+            <button>Atualizar Cadastro</button>
         </form>
-        {% endif %}
-    </section>
-{% endblock body %}
+    {% endif %}
+{% endblock body%}

@@ -2,8 +2,8 @@
 {% block body %}
 
     <section>
-        <h1>Detalhes da vaga</h1>
-        {% if vagas %}
+        <h1>Detalhes sobre vagas</h1>
+        {% for vaga in vagas %}
         <div> 
             <h5>Titulo da vaga: {{vaga.titulo_vaga}}</h5>   
             <p>Responsavel pela vaga: {{vaga.responsavel_vaga}}</p>
@@ -24,5 +24,5 @@
         <a href="/vaga/editar/{{vaga.id}}"><button>Editar Vaga</button></a>
         </div>
     </section>
-        {% endif %}
+        {% endfor %}
 {% endblock body %}

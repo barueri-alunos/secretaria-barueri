@@ -4,9 +4,9 @@ from .models import *
 
 
 def cadastro_vaga(request):
-    vagas = VagaForm(request.POST or None)
+    form = VagaForm(request.POST or None)
     args = {
-        'vagas':vagas
+        'form': form
     }
     if form.is_valid():
         form.save()
@@ -16,7 +16,8 @@ def cadastro_vaga(request):
         return render(request, 'cadastro.html', args)
     return render(request, 'cadastro.html', args)        
 
-def editar_vagas(request):
+#essa página vai editar uma vaga
+def editar_vagas(request, id):
     vagas = Vaga.objects.get(pk=id)
     form = VagaForm(request.POST or None, instance=vagas)
     args = {
@@ -29,19 +30,19 @@ def editar_vagas(request):
         }
     return render(request, 'editar_vagas.html', args)
 
-def detalhe_vaga(request, id):
-    vaga = Vaga.objects.get(pk=id)
+
+#essa página vai listar as vagas
+def detalhe_vaga(request):
+    vagas = Vaga.objects.filter(ativo=True).all()
     args = {
-        'vaga':vaga
+        'vagas':vagas
     }
     return render(request, 'detalhe_vagas.html', args)
+
 
 def remover_vaga(request, id):
     vaga = Vaga.objects.get(pk=id)
-    vaga.delete()
-
-    args = {
-        'msg': 'Vaga deletada com sucesso',
-        'vaga':vaga
-    }
-    return render(request, 'detalhe_vagas.html', args)
+    if vaga is not None:
+        vaga.ativo = False
+        vaga.save()
+    return render(request, 'detalhe_vagas.html', {'msg' : 'Ops, deu ruim'})

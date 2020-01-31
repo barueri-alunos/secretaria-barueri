@@ -1,6 +1,7 @@
 from django.db import models
 from usuarios.models import PessoaJuridica
 from vaga.choices import *
+from django.utils import timezone
 import datetime
 
 class Vaga(models.Model):
@@ -19,12 +20,15 @@ class Vaga(models.Model):
     data_abertura = models.DateField(verbose_name='Data de abertura da vaga')
     detalhes = models.TextField(verbose_name='Detalhes sobre a vaga')
     empresa = models.ForeignKey(PessoaJuridica, null=True, on_delete=models.CASCADE)
+    ativo = models.BooleanField(default=True)
+    criado_em = models.DateField(default= timezone.now, verbose_name = "Criado em")
     
     def __str__(self):
         return self.titulo_vaga
 
 
 class Detalhes(models.Model):
+    posicao = models.ForeignKey(Vaga, null=True, on_delete=models.CASCADE, related_name='Vagas')
     conhecimento_tecnico = models.CharField(max_length=255, verbose_name='Conhecimentos técnicos')
     conhecimento_informatica = models.CharField(max_length=100, verbose_name='Conhecimento em informatica')
     carregar_peso = models.BooleanField(default=False, verbose_name='Carregará peso ?', choices=resposta)
