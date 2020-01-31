@@ -3,6 +3,11 @@ from django.urls import path, include
 
 
 urlpatterns = [
+    path('vagas/editar/'<int=id>, editar_vagas),
+    path('vagas/deletar/'<int=id>, remover_vaga),
+    path('cadastro/pf',cadastrar_pessoa_fisica),
+    path('cadastro/pf/acessibilidade', acessibilidade_cadastro),
+    path('cadastro/pj', cadastrar_empresa),
     path('admin/', admin.site.urls),
     path('vagas/', include('vaga.urls')),
     path('dados/', include('usuarios.urls'))
