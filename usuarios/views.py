@@ -73,7 +73,7 @@ def remover_empresa(request, id):
     empresa.delete()
 
     args = {
-        'msg': 'O aluno foi deletado com sucesso',
+        'msg': 'A empresa foi deletado com sucesso',
         'empresa': empresa
     }
 
