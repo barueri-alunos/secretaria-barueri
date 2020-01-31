@@ -4,9 +4,9 @@ from .models import *
 from usuarios.views import PessoaFisica
 
 def cadastro_vaga(request):
-    form = VagaForm(request.POST or None)
+    vagas = VagaForm(request.POST or None)
     args = {
-        'form': form
+        'vagas':vagas
     }
     if form.is_valid():
         form.save()
@@ -42,7 +42,11 @@ def detalhe_vaga(request):
 
 def remover_vaga(request, id):
     vaga = Vaga.objects.get(pk=id)
-    if vaga is not None:
-        vaga.ativo = False
-        vaga.save()
-    return render(request, 'detalhe_vagas.html', {'msg' : 'Ops, deu ruim'})
+    vaga.delete()
+
+    args = {
+        'msg': 'Vaga deletada com sucesso',
+        'vaga':vaga
+    }
+    return render(request, 'detalhe_vagas.html', args)
+
