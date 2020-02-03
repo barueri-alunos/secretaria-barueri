@@ -42,6 +42,8 @@ class Endereco(models.Model):
     cep = models.CharField(max_length=20, verbose_name='CEP')
     usuario  = models.ForeignKey(User,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.logradouro + ' ' + self.numero
          
 class Acessibilidade(models.Model):
     class Meta:    
