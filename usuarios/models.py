@@ -25,7 +25,7 @@ class PessoaJuridica(User):
     razao_social = models.CharField(max_length=255, verbose_name='Razão social da empresa', null=True, blank=True)
     cnpj = models.CharField(max_length=18, verbose_name='CNPJ', null=True, blank=True)
     contato_empresa = models.CharField(max_length=128, verbose_name='Contato da empresa', null=True, blank=True)
-    # ramo_atividade = models.CharField(max_length=255, verbose_name='Ramo de atividade', null=True, blank=True)
+    ramo_atividade = models.CharField(max_length=255, verbose_name='Ramo de atividade', null=True, blank=True)
     numero_funcionarios = models.IntegerField(verbose_name='Número de funcionários', null=True, blank=True)
     numero_pcds = models.IntegerField(verbose_name='Número de PCDs', null=True, blank=True)
 
