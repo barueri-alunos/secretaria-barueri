@@ -1,7 +1,7 @@
 from django.contrib import admin
 <<<<<<< HEAD
 from django.urls import path, include
-from .views import *
+from usuarios.views import *
 
 urlpatterns = [
     path('cadastro/pf',cadastrar_pessoa_fisica),
