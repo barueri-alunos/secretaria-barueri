@@ -4,9 +4,9 @@ from .models import *
 from usuarios.views import PessoaFisica
 
 def cadastro_vaga(request):
-    vagas = VagaForm(request.POST or None)
+    form = VagaForm(request.POST or None)
     args = {
-        'vagas':vagas
+        'form':form
     }
     if form.is_valid():
         form.save()
@@ -28,6 +28,7 @@ def editar_vagas(request, id):
         args = {
             'msg': 'Informações da vaga atualizadas'
         }
+        return render(request, 'editar_vagas.html', args)
     return render(request, 'editar_vagas.html', args)
 
 
