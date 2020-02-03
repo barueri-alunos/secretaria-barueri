@@ -65,3 +65,19 @@ tipos_deficiencia = (
     ('PSICOSOCIAL','Psicosocial'),
     ('OUTRA', 'Outra'),
 )
+escolaridades = (
+        ('EFI', 'Ensino Fundamental Inconpleto'),
+        ('EFC', 'Ensino Fundamental Completo'),
+        ('EFCu', 'Ensino FUndamental Cursando'),
+        ('EMI', 'Ensino Médio Incompleto'),
+        ('EMC', 'Ensino Médio Completo'),
+        ('EMCu', 'Ensino Médio Cursando'),
+        ('CT', 'Curso Técnico'),
+        ('ESI', 'Ensino Superior Incompleto'),
+        ('ESC', 'Ensino Superior Completo'),
+        ('ESCu', 'Ensino Superior Cursando'),
+        ('PGI', 'Pós graduação Inconcpleto'),
+        ('PGC', 'Pós Graduação Completo'),
+        ('PGCu', 'Pós Graduação Cursando'),
+
+    )
