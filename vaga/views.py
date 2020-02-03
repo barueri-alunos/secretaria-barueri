@@ -28,6 +28,7 @@ def editar_vagas(request, id):
         args = {
             'msg': 'Informações da vaga atualizadas'
         }
+        return render(request, 'editar_vagas.html', args)
     return render(request, 'editar_vagas.html', args)
 
 
