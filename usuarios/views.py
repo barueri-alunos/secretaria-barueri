@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from usuarios.forms import *
 from usuarios.models import *
+
 # Create your views here.
 
 def home(request):
@@ -27,17 +28,18 @@ def cadastrar_pessoa_fisica(request):
             'form':form,
             'msg':'O cadastro foi realizado com sucesso'
         }
-        return render(request, 'cadastro.html', args)
+        return render(request, 'cadastro_pf.html', args)
     args = {'form':form}
-    return render(request, 'cadastro.html', args)
+    return render(request, 'cadastro_pf.html', args)
 
-def detalhes_pessoa_fisica(request):
-    pf= PessoaFisica.objects.filter().all()
-    args = {'pessoafisica': pessoafisisca}
-    return render(request, 'detalhes.html', args)
+def detalhes_pessoa_fisica(request, id):
+    pf = PessoaFisica.objects.get(pk=id)
+
+    args = {'pf':pf}
+    return render(request, 'detalhe_pf.html', args)
 
 def atualizar_pessoa_fisica(request, id):
-    pf = pessoafisica.objects.get(pk = id)
+    pf = PessoaFisica.objects.get(pk = id)
     form = PessoaFisicaForm(request.POST or None, instance = pf)
 
     args = {'form': form}
@@ -45,18 +47,17 @@ def atualizar_pessoa_fisica(request, id):
     if form.is_valid():
         form.save()
         args = {'msg': 'Cadastro atualizado com sucesso'}
-        return render(request, 'atualizarpf.html', args)
+    return render(request, 'atualizar_pf.html', args)
 
 def deletar_pessoa_fisica(request, id):
-    pf = pessoafisica.objects.get(pk = id)
-    form = PessoaFisicaForm(request.POST or None, instance = pf)
+    pf = PessoaFisica.objects.get(pk=id)
+    pf.delete()
 
-    args = {'form': form}
-
-    if form.is_valid():
-        form.save()
-        args = {'msg': 'Cadastro deletaado com sucesso'}
-        return render(request, 'delitepf.html', args)
+    args = {
+        'msg':'A pessoa foi deletada com sucesso',
+        'pf':pf
+        }
+    return render(request, 'deletar_pf.html', args)
 
 
 
