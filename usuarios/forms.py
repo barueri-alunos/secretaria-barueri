@@ -60,8 +60,7 @@ class AcessibilidadeForm(forms.ModelForm):
             ]
 
 
-        fields = '__all__'
-
+     
 class Avaliacao_SecretariaForm(forms.ModelForm):
 
     class Meta:
