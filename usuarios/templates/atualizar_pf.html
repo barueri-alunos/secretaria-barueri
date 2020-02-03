@@ -1,4 +1,4 @@
-{% extend 'base.html' %}
+{% extends 'base.html' %}
 {% block body %}
 {% if msg %}
 
@@ -6,9 +6,9 @@
 <a href="/"><button>Voltar para Home</button></a>
 {% endif %}
 <form method="POST">
-    {% crf_token %}
+    {% csrf_token %}
     {{form_as.p}}
     <button>Atualizar Cadastro</button>
 </form>
-{% endif %}
+
 {% endblock body %}
