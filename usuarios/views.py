@@ -110,3 +110,40 @@ def remover_empresa(request, id):
     }
 
     return render(request, 'detalhe_empresa .html', args)
+
+def avaliacao_secretaria(request):
+
+    form = Avaliacao_SecretariaForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        args ={
+            'form':form,
+            'msg':'Avaliação enviada com sucesso'
+        }
+        return render(request,'avaliacao_secretaria.html',args)
+    args ={'form':form}
+    return render(request,'avaliacao_secretaria.html',args)
+
+def atualizar_cadastro(request, id):
+    pessoafisica = PessoaFisica.objects.get(pk=id)
+    form = PessoaFisicaForm(request.POST or None, instance=pessoafisica)
+
+    args = {'form':form}
+
+    if form.is_valid():
+        form.save()
+        args = {
+            'msg':'Cadastro atualizado com sucesso'
+        }
+    return render(request, 'atualizar_cadastro.html', args)        
+    
+def deletar_cadastro(request, id):
+    pessoafisica = PessoaFisica.objects.get(pk=id)
+    pessoafisica.delete()
+    args = {
+        'msg':'O cadastro foi deletado com sucesso'
+        'pessoafisica'
+    }
+
+    return render(request, 'deletar_cadastro.html', args)

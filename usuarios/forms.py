@@ -61,3 +61,22 @@ class AcessibilidadeForm(forms.ModelForm):
             ]
 
 
+        fields = '__all__'
+
+class Avaliacao_SecretariaForm(forms.ModelForm):
+
+    class Meta:
+        model = Avaliacao_Secretaria
+        fields = [
+            'data_da_avaliacao',
+            'nome_do_trabalhador',
+            'telefone',
+            'nome_da_empresa',
+            'contratacao',
+            'cargo_funcao',
+            'atividade_realizada',
+            'adaptacao_local_de_trabalho',
+            'atencao_limitacoes_habilidades',
+            'relacionamento_chefia',
+            'relacionamento_colegas'
+        ]
