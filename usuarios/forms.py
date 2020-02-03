@@ -1,5 +1,5 @@
 from django import forms
-from usuarios.models import *
+from usuarios.models import PessoaFisica, PessoaJuridica, Acessibilidade, Endereco
 
 class PessoaFisicaForm(forms.ModelForm):
     class Meta:
@@ -37,7 +37,6 @@ class PessoaJuridicaForm(forms.ModelForm):
             ]
 
 class EnderecoForm(forms.ModelForm):
-
     class Meta:
         model = Endereco
         fields = [
