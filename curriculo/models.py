@@ -1,5 +1,6 @@
 from django.db import models
-from usuarios.choices import *
+from choices import *
+from django.utils import timezone
 
 # Create your models here.
 class Competencia(models.Model):
