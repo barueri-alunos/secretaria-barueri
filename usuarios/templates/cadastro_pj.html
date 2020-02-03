@@ -5,7 +5,8 @@
     {% endif %}
     <form method="POST">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form_pj.as_p}}
+        {{form_endereco.as_p}}
         <button>Enviar Cadastro</button>
     </form>
 {% endblock body %}

@@ -8,12 +8,17 @@ def home(request):
     return render(request, 'base.html')
 
 def cadastrar_empresa(request):
-    form = PessoaJuridicaForm(request.POST or None)
+    form_pj = PessoaJuridicaForm(request.POST or None)
+    form_endereco = EnderecoForm(request.POST or None)
     args = {
-        'form':form
+        'form_pj':form_pj,
+        'form_endereco':form_endereco
     }
-    if form.is_valid():
-        form.save()
+    if form_pj.is_valid() and form_endereco.is_valid():
+        pessoa_juridica = form_pj.save()
+        endereco = form_endereco.save(commit=False)
+        endereco.usuario = pessoa_juridica
+        endereco.save()
         args = {
             'msg': 'Cadastro realizado com sucesso'
         }
