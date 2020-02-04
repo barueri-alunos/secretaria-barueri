@@ -1,5 +1,5 @@
 from django import forms
-from usuarios.models import *
+from .models import *
 
 class PessoaFisicaForm(forms.ModelForm):
     class Meta:
@@ -48,7 +48,6 @@ class EnderecoForm(forms.ModelForm):
             'cep', 
             ]
 
-
 class AcessibilidadeForm(forms.ModelForm):
 
     class Meta:
@@ -58,9 +57,6 @@ class AcessibilidadeForm(forms.ModelForm):
             'tipo_deficiencia', 
             'cid', 
             ]
-
-
-        fields = '__all__'
 
 class Avaliacao_SecretariaForm(forms.ModelForm):
 

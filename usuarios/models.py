@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from usuarios.choices import *
-from django.utils import timezone
+from django.utils import timezone 
 
 class PessoaFisica(User):
     class Meta:
