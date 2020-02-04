@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from vaga.forms import VagaForm
 from usuarios.models import PessoaJuridica
 from .models import * 
@@ -24,8 +24,8 @@ def cadastro_vaga(request, id):
         vaga.empresa = pessoa_juridica
         vaga.save()
         
-        return render(request, 'cadastro_vagas.html', args)
-    return render(request, 'cadastro_vagas.html', args)        
+        return redirect(f'/dados/pj/detalhes/{pessoa_juridica.id}')
+    return render(request, 'cadastro.html', args)        
 
 #essa página vai editar uma vaga
 def editar_vagas(request, id):
