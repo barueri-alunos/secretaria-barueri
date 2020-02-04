@@ -6,17 +6,24 @@ from .models import *
 
 def cadastro_vaga(request, id):
     form = VagaForm(request.POST or None)
-    pessoa_juridica = PessoaJuridica.objects.get(pk=id)
+    
     args = {
         'form': form
     }
     if form.is_valid():
-        vaga = form.save(commit=False)
-        vaga.empresa = pessoa_juridica
-        vaga.save()
-        args = {
-            'msg': 'Cadastro realizado com sucesso'
-        }
+        try:
+            pessoa_juridica = PessoaJuridica.objects.get(pk=id)
+            vaga = form.save(commit=False)
+            vaga.empresa = pessoa_juridica
+            vaga.save()
+            args = {
+                'msg': 'Cadastro realizado com sucesso'
+            }
+        except:
+            args = {
+                'msg': 'pessoa juridica nao existe'
+
+            }
         return render(request, 'cadastro.html', args)
     return render(request, 'cadastro.html', args)        
 
