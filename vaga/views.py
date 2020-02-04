@@ -1,15 +1,19 @@
 from django.shortcuts import render
 from vaga.forms import VagaForm
+from usuarios.models import PessoaJuridica
 from .models import *
 
 
-def cadastro_vaga(request):
+def cadastro_vaga(request, id):
     form = VagaForm(request.POST or None)
+    pessoa_juridica = PessoaJuridica.objects.get(pk=id)
     args = {
         'form': form
     }
     if form.is_valid():
-        form.save()
+        vaga = form.save(commit=False)
+        vaga.empresa = pessoa_juridica
+        vaga.save()
         args = {
             'msg': 'Cadastro realizado com sucesso'
         }
