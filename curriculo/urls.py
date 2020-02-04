@@ -4,5 +4,5 @@ from .views import *
 
 
 urlpatterns = [
-    path('competencia/', cadastrar_competencia),
+    path('competencia/<int:id>', cadastrar_competencia),
 ]
