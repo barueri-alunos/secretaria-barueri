@@ -12,4 +12,5 @@ urlpatterns = [
     path('cadastro/pj', cadastrar_empresa),
     path('pj/editar/<int:id>', editar_empresa),
     path('pj/remover/<int:id>', remover_empresa),
+    path('lista/pj', lista_pj),
 ]
