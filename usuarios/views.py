@@ -142,7 +142,7 @@ def avaliacao_secretaria(request):
     return render(request,'avaliacao_secretaria.html',args)
           
 def lista_pj(request):
-    lista_pj = PessoaJuridica.objetcs.filter().all()
+    lista_pj = PessoaJuridica.objects.filter().all()
 
     args = {'lista_pj':lista_pj}
     return render(request, 'lista_pj.html', args)
