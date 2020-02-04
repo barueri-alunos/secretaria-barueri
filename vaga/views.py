@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from vaga.forms import VagaForm
 from usuarios.models import PessoaJuridica
-from .models import *
+from .models import * 
 
 
 def cadastro_vaga(request, id):
@@ -10,20 +10,20 @@ def cadastro_vaga(request, id):
     args = {
         'form': form
     }
+
     if form.is_valid():
         try:
             pessoa_juridica = PessoaJuridica.objects.get(pk=id)
-            vaga = form.save(commit=False)
-            vaga.empresa = pessoa_juridica
-            vaga.save()
-            args = {
-                'msg': 'Cadastro realizado com sucesso'
-            }
         except:
             args = {
                 'msg': 'pessoa juridica nao existe'
-
             }
+            return render(request, 'cadastro.html', args)
+
+        vaga = form.save(commit=False)
+        vaga.empresa = pessoa_juridica
+        vaga.save()
+        
         return render(request, 'cadastro.html', args)
     return render(request, 'cadastro.html', args)        
 
