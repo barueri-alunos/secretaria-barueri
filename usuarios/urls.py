@@ -4,7 +4,7 @@ from usuarios.views import *
 
 urlpatterns = [
     path('cadastro/pf',cadastrar_pessoa_fisica),
-    path ('cadastro/pf/atualizar/<int:id>',atualizar_cadastro),
+    path ('cadastro/pf/atualizar/<int:id>',editar_empresa),
     path ('cadastro/pf/deletar/int:id>',deletar_cadastro),
     path('cadastro/pf/acessibilidade', acessibilidade_cadastro),
     path('pf/detalhes/<int:id>',detalhes_pessoa_fisica),
