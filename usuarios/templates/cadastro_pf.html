@@ -1,11 +1,16 @@
-
+{% extends 'base.html' %}
 {% block body %}
+<div class="card-header">
+    Cadastro Pessoa Física
+</div>
+<div class="card-body">
     {% if msg %}
         <h3>{{msg}}</h3>
     {% endif %}
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button>Enviar Cadastro</button>
+        <button class="btn btn-success">Enviar Cadastro</button>
     </form>
+</div>
 {% endblock body %}
