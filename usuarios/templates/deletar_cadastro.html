@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-
 {% block body %}
-    {% if msg %}
-    <h3>{{msg}}</h3>
-    {% endif %}
-    <a href="/">Home</a>
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>deletar</button>
-
-    </form>
+    <section class="container">
+        <h1>Deletar Cadastro</h1>
+        {% if empresa %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h1 class="card-title">Nome: {{empresa.nome}}</h1>
+                <p class="card-text">Empresa Deletado</p>
+            </div>
+        </div>
+        {% endif %}
+    </section>
 {% endblock %}

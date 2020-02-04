@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class='card-header'>
+    Cadastro Pessoa Jurídica
+</div>
+<div class='card-body'>
     {% if msg %}
         <h1>{{msg}}</h1>
         {% endif%}
@@ -9,10 +13,9 @@
         <form method="POST">
             {% csrf_token %}
             {{form.as_p}}
-            <button>salvar</button>
-                       
+            <button>salvar</button>     
         </form>
-        
+</div>
 {% endblock %}
 
 

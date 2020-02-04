@@ -7,7 +7,7 @@
 {% endif %}
 <form method="POST">
     {% csrf_token %}
-    {{form_as.p}}
+    {{form.as_p}}
     <button>Atualizar Cadastro</button>
 </form>
 

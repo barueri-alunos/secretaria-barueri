@@ -1,12 +1,14 @@
+{% extends 'base.html' %}
 {% block body %}
-    {% if msg %}
-        <h3>{{msg}}</h3>
-    {% endif %}
-    {% if form %}
-        <form method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button>Atualizar Cadastro</button>
-        </form>
-    {% endif %}
+{% if msg %}
+
+<h3>{{msg}}</h3>
+<a href="/"><button>Voltar para Home</button></a>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Atualizar Cadastro</button>
+</form>
+
 {% endblock body %}
