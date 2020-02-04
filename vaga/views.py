@@ -18,14 +18,14 @@ def cadastro_vaga(request, id):
             args = {
                 'msg': 'pessoa juridica nao existe'
             }
-            return render(request, 'cadastro.html', args)
+            return render(request, 'cadastro_vagas.html', args)
 
         vaga = form.save(commit=False)
         vaga.empresa = pessoa_juridica
         vaga.save()
         
-        return render(request, 'cadastro.html', args)
-    return render(request, 'cadastro.html', args)        
+        return render(request, 'cadastro_vagas.html', args)
+    return render(request, 'cadastro_vagas.html', args)        
 
 #essa página vai editar uma vaga
 def editar_vagas(request, id):
