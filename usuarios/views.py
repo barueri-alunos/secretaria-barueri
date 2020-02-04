@@ -142,12 +142,3 @@ def avaliacao_secretaria(request):
     return render(request,'avaliacao_secretaria.html',args)
       
     
-def deletar_cadastro(request, id):
-    pessoafisica = PessoaFisica.objects.get(pk=id)
-    pessoafisica.delete()
-    args = {
-        'msg':'O cadastro foi deletado com sucesso'
-        'pessoafisica'
-    }
-
-    return render(request, 'deletar_cadastro.html', args)
