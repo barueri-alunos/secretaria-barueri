@@ -1,5 +1,9 @@
-
+{% extends 'base.html'%}
 {% block body %}
+<div class='card-header'>
+    Cadastro Pessoa Jurídica
+</div>
+<div class='card-body'>
     {% if msg %}
         <h3>{{msg}}</h3>
     {% endif %}
@@ -7,6 +11,7 @@
         {% csrf_token %}
         {{form_pj.as_p}}
         {{form_endereco.as_p}}
-        <button>Enviar Cadastro</button>
+        <button class='btn btn-sucess'>Enviar Cadastro</button>
     </form>
+</div>
 {% endblock body %}
