@@ -3,8 +3,8 @@
 <section>
     <h1>Detalhes:</h1>
 
-    <div>
-        <h3>{{pf.nome}}</h3>
+<div>
+     <h3>{{pf.nome}}</h3>
         <p>cpf{{pf.cpf}}</p>
         <p>genero{{pk.genero}}</p>
         <p>estado civil{{pf.estado_civil}}</p>
@@ -14,11 +14,11 @@
         <a href="/pf/editar/{{pf.pk}}"><button>Atualizar Cadastro</button></a>
         <a href="/pf/remover/{{pf.pk}}"><button>Deletar Cadastro</button></a>
 
-    </div>
-    {% if msg%}
-    <h2>{{msg}}</h2>
-    {% endif %}
-</section>
+</div>
 
+{% if msg%}
+<h2>{{msg}}</h2>
+{% endif %}
+</section>
 
 {% endblock body %}
