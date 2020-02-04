@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from forms import *
-from models import *
+from curriculo.forms import *
+from curriculo.models import *
 
 # Create your views here.
 def competencia(request):
@@ -14,4 +14,4 @@ def competencia(request):
         }
         return render(request,'competencia.html',args)
     args ={'form':form}
-    return render(request,'comptencia.html',args)
+    return render(request,'competencia.html',args)

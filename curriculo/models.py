@@ -1,5 +1,5 @@
 from django.db import models
-from .choices import *
+from curriculo.choices import *
 from django.utils import timezone
 
 # Create your models here.
