@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from usuarios.forms import *
 from usuarios.models import *
+from vaga.models import Vaga
 
 # Create your views here.
 
@@ -109,9 +110,10 @@ def editar_empresa(request, id):
 
 def detalhar_empresa(request, id):
     empresa = PessoaJuridica.objects.get(pk=id)
-
+    vagas = empresa.vaga_set.all().filter(ativo=True)
     args = {
-        'empresa': empresa
+        'empresa': empresa,
+        'vagas': vagas
     }
     
     return render(request, 'detalhe_empresa.html', args)
