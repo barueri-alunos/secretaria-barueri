@@ -1,18 +1,29 @@
 from django.shortcuts import render
 from vaga.forms import VagaForm
-from .models import *
+from usuarios.models import PessoaJuridica
+from .models import * 
 
 
-def cadastro_vaga(request):
+def cadastro_vaga(request, id):
     form = VagaForm(request.POST or None)
+    
     args = {
         'form': form
     }
+
     if form.is_valid():
-        form.save()
-        args = {
-            'msg': 'Cadastro realizado com sucesso'
-        }
+        try:
+            pessoa_juridica = PessoaJuridica.objects.get(pk=id)
+        except:
+            args = {
+                'msg': 'pessoa juridica nao existe'
+            }
+            return render(request, 'cadastro.html', args)
+
+        vaga = form.save(commit=False)
+        vaga.empresa = pessoa_juridica
+        vaga.save()
+        
         return render(request, 'cadastro.html', args)
     return render(request, 'cadastro.html', args)        
 
