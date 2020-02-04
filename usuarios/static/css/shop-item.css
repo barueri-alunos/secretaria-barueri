@@ -6,3 +6,20 @@
 body {
   padding-top: 56px;
 }
+
+
+.list-group-item {
+  color: #8b3266;
+}
+
+.list-group-item:hover {
+  background-color: #8b3266;
+  color: white;
+  text-decoration: none;
+}
+
+.list-group-item:link {
+  background-color: #8b3266;
+  color: white;
+  text-decoration: none;
+}
