@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
-{% if msg %}
-
-
-
-{% endif %}
-{% endblock body %}
+    <section class="container">
+        <h1>Deletar Cadastro</h1>
+        {% pf %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h1 class="card-title">Nome: {{pf.nome}}</h1>
+                <p class="card-text">Pessoa Fisica Deletado</p>
+            </div>
+        </div>
+        {% endif %}
+    </section>
+{% endblock body%}
