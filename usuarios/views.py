@@ -55,7 +55,9 @@ def atualizar_pessoa_fisica(request, id):
     pf = PessoaFisica.objects.get(pk = id)
     form = PessoaFisicaForm(request.POST or None, instance = pf)
 
-    args = {'form': form}
+    args = {'form': form
+                
+            }  
 
     if form.is_valid():
         form.save()
@@ -90,8 +92,8 @@ def acessibilidade_cadastro(request):
     return render(request,'acessibilidade.html',args)
 
 def editar_empresa(request, id):
-    empresa = Empresa.objects.get(pk=id)
-    form = PessoaFisicaForm(request.POST or None, instance=empresa)
+    empresa = PessoaJuridica.objects.get(pk=id)
+    form = PessoaJuridicaForm(request.POST or None, instance=empresa)
     
     args = {
         'form':form
@@ -106,7 +108,7 @@ def editar_empresa(request, id):
     return render(request, 'edicao_empresa.html', args)
 
 def detalhar_empresa(request, id):
-    empresa = Empresa.objects.get(pk=id)
+    empresa = PessoaJuridica.objects.get(pk=id)
 
     args = {
         'empresa': empresa
@@ -115,15 +117,15 @@ def detalhar_empresa(request, id):
     return render(request, 'detalhe_empresa.html', args)
 
 def remover_empresa(request, id):
-    empresa = Empresa.objects.get(pk=id)
-    empresa.delete()
+    empresa = PessoaJuridica.objects.get(pk=id)   
 
     args = {
         'msg': 'A empresa foi deletado com sucesso',
         'empresa': empresa
     }
+    empresa.delete()
 
-    return render(request, 'detalhe_empresa .html', args)
+    return render(request, 'deletar_cadastro.html', args)
 
 def avaliacao_secretaria(request):
 
@@ -138,19 +140,7 @@ def avaliacao_secretaria(request):
         return render(request,'avaliacao_secretaria.html',args)
     args ={'form':form}
     return render(request,'avaliacao_secretaria.html',args)
-
-def atualizar_cadastro(request, id):
-    pessoafisica = PessoaFisica.objects.get(pk=id)
-    form = PessoaFisicaForm(request.POST or None, instance=pessoafisica)
-
-    args = {'form':form}
-
-    if form.is_valid():
-        form.save()
-        args = {
-            'msg':'Cadastro atualizado com sucesso'
-        }
-    return render(request, 'atualizar_cadastro.html', args)        
+      
     
 def deletar_cadastro(request, id):
     pessoafisica = PessoaFisica.objects.get(pk=id)
