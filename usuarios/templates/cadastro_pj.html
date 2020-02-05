@@ -6,11 +6,11 @@
 <div class='card-body'>
     {% if msg %}
         <h3>{{msg}}</h3>
+        <a href="/dados/pj/lista"><button class='btn btn-success'>Ver lista</button></a>
     {% endif %}
     <form method="POST">
         {% csrf_token %}
         {{form_pj.as_p}}
-       
         {{form_endereco.as_p}}
         <button class='btn btn-success'>Enviar Cadastro</button>
     </form>
