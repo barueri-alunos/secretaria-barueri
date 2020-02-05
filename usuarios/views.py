@@ -148,3 +148,22 @@ def lista_pj(request):
 
     args = {'lista_pj':lista_pj}
     return render(request, 'lista_pj.html', args)
+
+def login_pj(request):
+    if request.method == "POST":
+        usuario = request.POST.get('usuario')
+        senha = request.POST.get('senha')
+        empresa_usuario = PessoaJuridica.objects.filter(cnpj=usuario).first()
+        empresa_senha = PessoaJuridica.objects.filter(contato_empresa=senha).first()
+
+        if empresa_usuario is None:
+            args={
+                'msg':'cadastre-se'
+            }
+            return render(request,'cadastro_pj.html',args)
+
+        else:
+            args={
+                'empresa':empresa_usuario
+            }
+            return render(request, 'base.html',args)
