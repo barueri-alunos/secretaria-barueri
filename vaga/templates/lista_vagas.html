@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <section>
+        <h1>Detalhes sobre vagas</h1>
+        {% for vaga in vagas %}
+        <div> 
+            <h5>Titulo da vaga: {{vaga.titulo_vaga}}</h5>   
+            <p>Responsavel pela vaga: {{vaga.responsavel_vaga}}</p>
+            <p>Contato da secretaria: {{vaga.contato_secretaria}}</p>
+            <p>Telefone: {{vaga.telefone}}</p>
+            <p>Area da vaga: {{vaga.area_vaga}}</p>
+            <p>Quantidade de vagas: {{vaga.quantidade_vagas}}</p> 
+            <p>Salario: {{vaga.salario}}</p>
+            <p>Dias trabalho: {{vaga.dias_trabalho}}</p>
+            <p>Horario de inicio: {{vaga.horario_inicio}}</p>
+            <p>Horario de final: {{vaga.horario_final}}</P>
+            <p>Beneficios: {{vaga.beneficios}}</p>
+            <p>Escolaridade: {{vaga.escolaridade}}</p>
+            <p>Data da abertura: {{vaga.data_abertura}}</p>
+            <p>Detalhes: {{vaga.detalhes}}</p>
+            <p>Empresa: {{vaga.empresa}}</p>
+        <a href="/vaga/detalhes/{{vaga.id}}"><button>Detalhes Vaga</button></a>
+        </div>
+    </section>
+        {% endfor %}
+{% endblock body %}
