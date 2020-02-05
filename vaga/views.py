@@ -59,5 +59,11 @@ def remover_vaga(request, id):
         vaga.save()
     return render(request, 'detalhe_vagas.html', {'msg' : 'Ops, deu ruim'})
 
-
+def detalhe_vaga(request, id):
+    vagas = Vaga.objects.get(pk=id)
+    detalhes = vagas.detalhes_set.all().filter(ativo=True)
+    args ={
+        'vaga':vaga
+    }
+    return render(request, 'detalhe_vagas.html', args)
 
