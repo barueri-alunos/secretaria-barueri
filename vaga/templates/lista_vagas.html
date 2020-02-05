@@ -2,7 +2,7 @@
 {% block body %}
 
     <section>
-        <h1>Detalhes sobre vagas</h1>
+        <h1>Detalhes sobre lista</h1>
         {% for vaga in vagas %}
         <div> 
             <h5>Titulo da vaga: {{vaga.titulo_vaga}}</h5>   
@@ -20,7 +20,7 @@
             <p>Data da abertura: {{vaga.data_abertura}}</p>
             <p>Detalhes: {{vaga.detalhes}}</p>
             <p>Empresa: {{vaga.empresa}}</p>
-        <a href="/vaga/detalhes/{{vaga.id}}"><button>Detalhes Vaga</button></a>
+        <a href="/vaga/detalhe/{{vaga.id}}"><button>Detalhes Lista</button></a>
         </div>
     </section>
         {% endfor %}
