@@ -5,7 +5,7 @@ from .models import *
 
 # Create your views here.
 def cadastrar_competencia(request, id):
-    pessoa_fisica = PessoaFisica.objects.get(pk=id)
+    competencia = Competencia.objects.get(pk=id)
     form = CompetenciaForm(request.POST or None, instance=pessoa_fisica)
     args ={
             'form':form
