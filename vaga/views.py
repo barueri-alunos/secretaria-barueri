@@ -44,12 +44,12 @@ def editar_vagas(request, id):
 
 
 #essa página vai listar as vagas
-def detalhe_vaga(request):
+def lista_vaga(request):
     vagas = Vaga.objects.filter(ativo=True).all()
     args = {
         'vagas':vagas
     }
-    return render(request, 'detalhe_vagas.html', args)
+    return render(request, 'lista_vagas.html', args)
 
 
 def remover_vaga(request, id):
@@ -58,3 +58,6 @@ def remover_vaga(request, id):
         vaga.ativo = False
         vaga.save()
     return render(request, 'detalhe_vagas.html', {'msg' : 'Ops, deu ruim'})
+
+
+
