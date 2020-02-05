@@ -25,7 +25,7 @@ def cadastro_vaga(request, id):
         vaga.save()
         
         return redirect(f'/dados/pj/detalhes/{pessoa_juridica.id}')
-    return render(request, 'cadastro.html', args)        
+    return render(request, 'cadastro_vagas.html', args)        
 
 #essa página vai editar uma vaga
 def editar_vagas(request, id):
