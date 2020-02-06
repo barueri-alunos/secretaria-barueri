@@ -9,7 +9,6 @@ class PessoaFisicaForm(forms.ModelForm):
             'last_name',
             'username', 
             'password',
-            'nome',
             'genero',
             'data_nascimento',
             'estado_civil',
@@ -24,8 +23,7 @@ class PessoaJuridicaForm(forms.ModelForm):
         model = PessoaJuridica
         fields = [
             'username', 
-            'first_name', 
-            'last_name', 
+            'password',
             'email', 
             'nome_fantasia', 
             'razao_social', 
