@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from vaga.forms import VagaForm
 from usuarios.models import PessoaJuridica
-from .models import * 
+from vaga.models import * 
 
 
 def cadastro_vaga(request, id):
@@ -61,9 +61,11 @@ def remover_vaga(request, id):
 
 def detalhe_vaga(request, id):
     vagas = Vaga.objects.get(pk=id)
-    detalhes = vagas.detalhes_set.all().filter(ativo=True)
-    args ={
-        'vaga':vaga
+    detalhes = vagas.detalhes_set.all().first()
+
+    args = {
+        'vagas':vagas,
+        'detalhes':detalhes,
     }
     return render(request, 'detalhe_vagas.html', args)
 

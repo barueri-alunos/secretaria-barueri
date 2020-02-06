@@ -17,7 +17,7 @@ class VagaForm(forms.ModelForm):
         'beneficios',
         'escolaridade',
         'data_abertura',
-        'detalhes']
+        'detalhes_vaga']
         
 
      
