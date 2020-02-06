@@ -3,15 +3,47 @@
 <div class='card-header'>
     Cadastro Pessoa Jurídica
 </div>
+
 <div class='card-body'>
-    {% if msg %}
-        <h3>{{msg}}</h3>
-        <a href="/dados/pj/lista"><button class='btn btn-success'>Ver lista</button></a>
-    {% endif %}
     <form method="POST">
         {% csrf_token %}
-        {{form_pj.as_p}}
-        {{form_endereco.as_p}}
+        
+        <div class="form-row">
+            {% for form in form_pj %}
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">{{form.label}}</label>
+                {{form}}
+                {% for error in form.errors %}
+                    <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if msg %}
+        {% else %}
+            <div class="card-header">
+                Dados do Local Fisíco da Empresa 
+            </div>
+        {% endif %}
+        
+        <div class="form-row">
+            {% for form in form_endereco%}
+                <div class="form-group {% if form.name == 'estado' or form.name == 'cidade' or form.name == 'numero' %} col {% elif form.name == 'cep' %} col-7 {% else %} col-md-6 {% endif %}">
+                    <label for="inputEmail4">{% if form.name == 'estado' %} Estado {% else %} {{form.label}} {% endif %}</label>
+                    {{form}}
+                    {% for error in form.errors %}
+                    <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if msg %}
+        <div class="p-3 mb-2 bg-success text-white">{{msg}}</div>
+        <a href="/dados/pj/lista"><button class='btn btn-success' style="background-color: #8b3266;">Ver lista</button></a>
+    {% endif %}
+
         <button class='btn btn-success'>Enviar Cadastro</button>
     </form>
 </div>
