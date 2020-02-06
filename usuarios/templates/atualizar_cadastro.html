@@ -8,12 +8,12 @@
     {% if msg %}
         <h1>{{msg}}</h1>
         {% endif%}
-        <a href="/" >Voltar para a Home</a> 
+        <a href="/"></a><button class='btn btn-success'>Voltar para a Home</button></a> 
         <p>Atualize seus dados</p>
         <form method="POST">
             {% csrf_token %}
             {{form.as_p}}
-            <button>salvar</button>     
+           <button> salvar </button>   
         </form>
 </div>
 {% endblock %}

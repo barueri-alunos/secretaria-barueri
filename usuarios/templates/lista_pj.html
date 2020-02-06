@@ -9,6 +9,10 @@
     <p>Ramo Atividade {{pj.ramo_atividade}}</p>
     <p>Numero Funcinarios {{pj.numero_funcionario}}</p>
     <p>Numero Pcds {{pj.numero_pcds}}</p>
-    <a href="/vagas/cadastro/{{pj.pk}}"><button class='btn btn-success'>Cadastrar vaga</button></a>
+    <div>
+        <a href="/vagas/cadastro/{{pj.pk}}"><button class='btn btn-success'>Cadastrar Vaga</button></a>
+        <a href="/dados/pj/editar/{{pj.pk}}"><button class="btn btn-warning">Atualizar Empresa</button></a>
+        <a href="/dados/pj/remover/{{pj.pk}}"><button class="btn btn-danger">Remover Empresa</button></a>
+    </div>
     {% endfor %}    
 {% endblock body %}

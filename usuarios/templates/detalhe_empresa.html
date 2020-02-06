@@ -8,8 +8,8 @@
     <p>Ramo de atividade {{empresa.ramo_atividade}}</p>
     <p>Numero de funcionarios {{empresa.numero_funcionarios}}</p>
     <p>Numero de PCD's {{empresa.numero_pcds}}</p>
-    <a href="/dados/editar/pj/{{empresa.pk}}"><button>Atualizar Cadastro</button></a>
-    <a href="/dados/remover/pj/{{empresa.pk}}"><button>Remover Empresa</button></a>
+    <a href="/dados/pj/editar/{{empresa.pk}}"><button>Editar Empresa</button></a>
+    <a href="/dados/pj/remover/{{empresa.pk}}"><button>Remover Empresa</button></a>
 
     {% for vaga in vagas %}
     <h1>{{vaga.titulo_vaga}}</h1>
@@ -28,8 +28,8 @@
     <p>Data de abertura {{vaga.data_abertura}}</p>
     <p>Detalhes {{vaga.detalhes}}</p>
     <p>Empresa {{vaga.empresa}}</p>
-    <a href="/vagas/editar/{{vaga.pk}}"><button class="btn btn-warning">Atualizar Vaga</button></a>
-    <a href="/vagas/deletar/{{vaga.pk}}"><button class="btn btn-danger">Remover Vaga</button></a>
+    <a href="dados/pj/editar/{{vaga.pk}}"><button class="btn btn-warning">Atualizar Vaga</button></a>
+    <a href="dados/pj/deletar/{{vaga.pk}}"><button class="btn btn-danger">Remover Vaga</button></a>
     {% endfor %}
     {% if msg %}
         <h2>{{msg}}</h2>
