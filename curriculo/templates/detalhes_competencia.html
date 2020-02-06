@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <h1>{{empresa.nome_fantasia}}</h1>
+    <p>Razão social {{empresa.razao_social}}</p>
+    <p>CNPJ {{empresa.cnpj}}</p>
+    <p>Contato da empresa {{empresa.contato_empresa}}</p>
+    <p>Ramo de atividade {{empresa.ramo_atividade}}</p>
+    <p>Numero de funcionarios {{empresa.numero_funcionarios}}</p>
+    <p>Numero de PCD's {{empresa.numero_pcds}}</p>
+    <a href="/dados/editar/pj/{{empresa.pk}}"><button>Atualizar Cadastro</button></a>
+    <a href="/dados/remover/pj/{{empresa.pk}}"><button>Remover Empresa</button></a>
+
+    {% for vaga in vagas %}
+    <h1>{{vaga.titulo_vaga}}</h1>
+    <p>Titulo da vaga {{vaga.titulo_vaga}}</p>
+    <p>Responsavel pela vaga {{vaga.responsavel_vaga}}</p>
+    <p>Contato da secretaria {{vaga.contato_secretaria}}</p>
+    <p>Area da vaga {{vaga.area_vaga}}</p>
+    <p>Telefone {{vaga.telefone}}</p>
+    <p>Quantidade de vagas {{vaga.quantidade_vagas}}</p>
+    <p>Salario {{vaga.salario}}</p>
+    <p>Dias de trabalho {{vaga.dias_trabalho}}</p>
+    <p>Horario de inicio {{vaga.hora_inicio}}</p>
+    <p>Horario final {{vaga.horario_final}}</p>
+    <p>Beneficios {{vaga.beneficios}}</p>
+    <p>Escolaridade {{vaga.escolaridade}}</p>
+    <p>Data de abertura {{vaga.data_abertura}}</p>
+    <p>Detalhes {{vaga.detalhes}}</p>
+    <p>Empresa {{vaga.empresa}}</p>
+    <a href="/vagas/editar/{{vaga.pk}}"><button>Atualizar Vaga</button></a>
+    <a href="/vagas/deletar/{{vaga.pk}}"><button>Remover Vaga</button></a>
+    {% endfor %}
+    {% if msg %}
+        <h2>{{msg}}</h2>
+    {% endif %}
+{% endblock body %}
