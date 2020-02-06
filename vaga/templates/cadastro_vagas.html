@@ -3,13 +3,28 @@
 <div class='card-header'>
     Cadastro de Vaga de Emprego
 </div>
-{% if msg %}
-    <h3>{{msg}}</h3>
-{% endif %}
+
 <div class='card-body'>
-<form method="POST">
+<form method="POST">    
     {% csrf_token %}
-    {{form.as_p}}
+
+    {% if msg %}
+    <div class="p-3 mb-2 bg-success text-white">{{msg}}</div>
+    {% endif %}
+    
+    <div class="form-row">
+        {% for f in form %}
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">{{f.label}}</label>
+                {{f}}
+                {% for error in form.errors %}
+                <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    
+    </div>
+
     <button class='btn btn-success'>Enviar Cadastro</button>
 </form>
 </div>

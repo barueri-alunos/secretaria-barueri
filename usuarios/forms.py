@@ -1,7 +1,13 @@
 from django import forms
 from .models import *
+from .choices import generos, estado, estados
 
 class PessoaFisicaForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for field in self.fields:
+                self.fields[field].widget.attrs.update({'class':'form-control'})
     class Meta:
         model = PessoaFisica
         fields = [ 
@@ -9,9 +15,9 @@ class PessoaFisicaForm(forms.ModelForm):
             'last_name',
             'username', 
             'password',
-            'genero',
             'data_nascimento',
             'estado_civil',
+            'genero',
             'cpf',
             'telefone_fixo',
             'celular',
@@ -19,6 +25,12 @@ class PessoaFisicaForm(forms.ModelForm):
         
 
 class PessoaJuridicaForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class':'form-control'})
+        
     class Meta:
         model = PessoaJuridica
         fields = [
@@ -33,8 +45,15 @@ class PessoaJuridicaForm(forms.ModelForm):
             'numero_funcionarios', 
             'numero_pcds'
             ]
+    
 
 class EnderecoForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class':'form-control'})
+
     class Meta:
         model = Endereco
         fields = [
@@ -48,6 +67,11 @@ class EnderecoForm(forms.ModelForm):
 
 class AcessibilidadeForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class':'form-control'})
+
     class Meta:
         model = Acessibilidade
         fields = [
@@ -57,6 +81,11 @@ class AcessibilidadeForm(forms.ModelForm):
             ]
 
 class Avaliacao_SecretariaForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class':'form-control'})
 
     class Meta:
         model = Avaliacao_Secretaria
