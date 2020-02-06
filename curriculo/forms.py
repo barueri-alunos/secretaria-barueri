@@ -17,4 +17,6 @@ class CompetenciaForm(forms.ModelForm):
             'nivel_de_leitura',
             'nivel_informatica',
             'lingua_estrangeira',
-            'lingua']
+            'lingua',
+            'pessoa_fisica',
+            ]

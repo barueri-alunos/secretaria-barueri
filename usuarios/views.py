@@ -2,6 +2,7 @@ from django.shortcuts import render
 from usuarios.forms import *
 from usuarios.models import *
 from vaga.models import Vaga
+from curriculo.models import Competencia
 
 # Create your views here.
 
@@ -48,8 +49,13 @@ def cadastrar_pessoa_fisica(request):
 
 def detalhes_pessoa_fisica(request, id):
     pf = PessoaFisica.objects.get(pk=id)
+    acc = pf.acessibilidade_set.first()
+    cpt = pf.competencia_set.first()
 
-    args = {'pf':pf}
+    args = {'pf':pf,
+            'acc':acc,
+            'cpt':cpt,
+            }
     return render(request, 'detalhe_pf.html', args)
 
 def atualizar_pessoa_fisica(request, id):
