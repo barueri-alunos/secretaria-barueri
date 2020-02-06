@@ -5,10 +5,15 @@
 <h3>{{msg}}</h3>
 <a href="/"><button>Voltar para Home</button></a>
 {% endif %}
+
+{% if form_pf and form_acc and form_cpt %}
 <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    {{form_pf.as_p}}
+    {{form_acc.as_p}}
+    {{form_cpt.as_p}}
     <button>Atualizar Cadastro</button>
 </form>
+{% endif %}
 
 {% endblock body %}

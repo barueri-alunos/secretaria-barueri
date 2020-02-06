@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from usuarios.forms import *
+from curriculo.forms import *
 from usuarios.models import *
 from vaga.models import Vaga
 from curriculo.models import Competencia
@@ -60,14 +61,23 @@ def detalhes_pessoa_fisica(request, id):
 
 def atualizar_pessoa_fisica(request, id):
     pf = PessoaFisica.objects.get(pk = id)
-    form = PessoaFisicaForm(request.POST or None, instance = pf)
+    acc = pf.acessibilidade_set.first()
+    cpt = pf.competencia_set.first()
 
-    args = {'form': form
-                
-            }  
+    form_pf = PessoaFisicaForm(request.POST or None, instance = pf)
+    form_acc = AcessibilidadeForm(request.POST or None, instance = acc)
+    form_cpt = CompetenciaForm(request.POST or None, instance = cpt)
 
-    if form.is_valid():
-        form.save()
+    args = {
+        'form_pf': form_pf,
+        'form_acc': form_acc,
+        'form_cpt': form_cpt,
+        }  
+
+    if form_pf.is_valid() and form_acc.is_valid() and form_cpt.is_valid():
+        form_pf.save()
+        form_acc.save()
+        form_cpt.save()
         args = {'msg': 'Cadastro atualizado com sucesso'}
     return render(request, 'atualizar_pf.html', args)
 
