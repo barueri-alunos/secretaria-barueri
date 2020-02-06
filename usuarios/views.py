@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from usuarios.forms import *
 from curriculo.forms import *
 from usuarios.models import *
@@ -45,7 +45,7 @@ def cadastrar_pessoa_fisica(request):
             'form':form_pf,
             'msg':'O cadastro foi realizado com sucesso'
         }
-        return render(request, 'cadastro_pf.html', args)
+        return redirect('/dados/cadastro/pf/acessibilidade')
     return render(request, 'cadastro_pf.html', args)
 
 def detalhes_pessoa_fisica(request, id):
@@ -102,10 +102,12 @@ def acessibilidade_cadastro(request):
         args ={
             'form':form,
             'msg':'O cadastro foi realizado com sucesso'
-
         }
-        return render(request,'acessibilidade.html',args)
-    args ={'form':form}
+        return redirect('/curriculo/competencia/')
+    args ={
+        'form':form
+        }
+
     return render(request,'acessibilidade.html',args)
 
 def editar_empresa(request, id):

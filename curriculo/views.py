@@ -10,7 +10,9 @@ def cadastrar_competencia(request):
         }
     if form.is_valid():
         form.save()
-        args['msg'] = 'Curriculo cadatrado com sucesso!'
+        args = {
+            'msg': 'Curriculo cadastrado com sucesso'
+        }
         return render(request,'competencia.html',args)
     return  render(request, 'competencia.html',args)   
         

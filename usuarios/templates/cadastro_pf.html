@@ -7,6 +7,8 @@
     {% if msg %}
         <h3>{{msg}}</h3>
     {% endif %}
+
+    {% if form_pf and form_endereco %}
     <form method="POST">
         {% csrf_token %}
         {{form_pf.as_p}}
@@ -14,5 +16,6 @@
         {{form_endereco.as_p}}
         <button class="btn btn-success">Enviar Cadastro</button>
     </form>
+    {% endif %}
 </div>
 {% endblock body %}
