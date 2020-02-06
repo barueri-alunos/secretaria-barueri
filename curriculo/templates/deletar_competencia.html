@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+    <section class="container">
+        <h1>Detalhes de Competência</h1>
+        {% if curriculo %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{competencia.objetivo}}</h5>
+                <p class="card-text">Competencia deletada</p>
+            </div>
+        </div>
+        {% endif%}   
+    </section>
+{% endblock body %}

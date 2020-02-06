@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <p>Objetivos: {{dc.competencia.objetivos}}</p>
+    <p>Qualificação Profissional: {{dc.competencia.qualificacao_profissional}}</p>
+    <p>Pretensão Salarial: {{dc.competencia.pretencao_salarial}}</p>
+    <p>Escolaridade: {{dc.competencia.escolaridade}}</p>
+    <p>Qual o curso? {{dc.competencia.qual_curso}}</p>
+    <p>Instituição de Ensino: {{dc.competencia.instituicao_de_ensino_curso}}</p>
+    <p>Data de ínicio: {{dc.competencia.ano_de_inicio}}</p>
+    <p>Data de término: {{dc.competencia.ano_de_termino}}</p>
+    <p>Cursos extras: {{dc.competencia.cursos_extras}}</p>
+    <p>Nível de leitura: {{dc.competencia.nivel_de_leitura}}</p>
+    <p>Nível de informática: {{dc.competencia.nivel_de_informatica}}</p>
+    <p>Língua Estrangeira: {{dc.competencia.lingua_estrangeira}}</p>
+    
+    {% if msg%}
+        <h2>{{msg}}</h2>
+    {% endif %}
+{% endblock body %}
+    
