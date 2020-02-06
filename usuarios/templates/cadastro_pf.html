@@ -5,14 +5,44 @@
 </div>
 <div class="card-body">
     {% if msg %}
-        <h3>{{msg}}</h3>
+        <div class="p-3 mb-2 bg-success text-white">{{msg}}</div>
     {% endif %}
+    
     <form method="POST">
         {% csrf_token %}
-        {{form_pf.as_p}}
         
-        {{form_endereco.as_p}}
-        <button class="btn btn-success">Enviar Cadastro</button>
+        <div class="form-row">            
+            {% for form in form_pf %}
+            <div class="form-group {% if form.name == 'genero' or form.name == 'estado_civil' %} col {% else %} col-md-6 {% endif %}">
+                <label for="inputEmail4">{% if form.name == 'estado_civil' %} Estado Civil {% elif form.name == 'genero' %} Genero {% else %} {{form.label}} {% endif %}</label>
+                {{form}}
+                {% for error in form.errors %}
+                <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            </div>
+            
+            {% if msg %}
+            {% else %}
+            <div class="card-header">
+                Dados Residênciais 
+            </div>
+            {% endif %}
+            
+            <div class="form-row">
+            {% for form in form_endereco%}
+                <div class="form-group {% if form.name == 'estado' or form.name == 'cidade' or form.name == 'numero' %} col {% elif form.name == 'cep' %} col-7 {% else %} col-md-6 {% endif %}">
+                    <label for="inputEmail4">{% if form.name == 'estado' %} Estado {% else %} {{form.label}} {% endif %}</label>
+                    {{form}}
+                    {% for error in form.errors %}
+                    <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            </div>
+        
+            <button class="btn btn-success">Enviar Cadastro</button>
     </form>
-</div>
+</form>
 {% endblock body %}
