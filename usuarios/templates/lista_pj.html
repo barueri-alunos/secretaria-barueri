@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+
     {% for pj in lista_pj %}
     <h3>{{pj.nome_fantasia}}</h3>
     <p>Razão social {{pj.razao_social}}</p>
@@ -8,6 +9,6 @@
     <p>Ramo Atividade {{pj.ramo_atividade}}</p>
     <p>Numero Funcinarios {{pj.numero_funcionario}}</p>
     <p>Numero Pcds {{pj.numero_pcds}}</p>
-    <a href="/vagas/cadastro/{{pj.pk}}"><button>Cadastrar vaga</button></a>
-    {% endfor %}
+    <a href="/vagas/cadastro/{{pj.pk}}"><button class='btn btn-success'>Cadastrar vaga</button></a>
+    {% endfor %}    
 {% endblock body %}
