@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from usuarios.forms import *
 from usuarios.models import *
 from vaga.models import Vaga
@@ -23,7 +23,7 @@ def cadastrar_empresa(request):
         args = {
             'msg': 'Cadastro realizado com sucesso'
         }
-        return render(request, 'cadastro_pj.html', args)
+        return redirect(f'/dados/pj/lista')
     return render(request, 'cadastro_pj.html', args)
 
 def cadastrar_pessoa_fisica(request):
