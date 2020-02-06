@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
-
 {% block body %}
+
     {% if msg %}
         <h1>{{msg}}</h1>
         {% endif%}
-        <p>Coloque suas competências</p>
+        {% if form %}
         <form method="POST">
             {% csrf_token %}
             {{form.as_p}}
-            <button>salvar</button>             
-        </form>     
+            <button>Atualizar cadastro</button>     
+        </form>
 {% endblock %}
-
-
-

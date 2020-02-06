@@ -4,5 +4,8 @@ from .views import *
 
 
 urlpatterns = [
-    path('competencia/', cadastrar_competencia),
+    path('cadastrar/', cadastrar_competencia),
+    path('deletar/', deletar_competencia),
+    path('atualizar/', atualizar_competencia),
+    path('detalhes/', detalhes_competencia),
 ]
