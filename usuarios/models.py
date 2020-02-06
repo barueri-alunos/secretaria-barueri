@@ -55,7 +55,7 @@ class Acessibilidade(models.Model):
     protese = models.BooleanField(default=False ,verbose_name='Faz uso de alguma órtese, prótese ou meios auxiliares de locomoção? (ex: cadeira de rodas, muleta, aparelho auditivo, etc',choices=resposta, null=True, blank=True)
     restricao_fisica = models.BooleanField(default=False ,verbose_name='Restrição para alguma atividade? Já teve adoecimento ou fastamento devido trabalho ou fora do trabalho? Acidente de trabalho anterior?',choices=resposta, null=True, blank=True)
     tecnologia = models.BooleanField(default=False ,verbose_name='Necessita de Tecnologia Assistiva para o Trabalho? Qual?',choices=resposta)
-
+    pessoa_fisica = models.ForeignKey(PessoaFisica, on_delete=models.CASCADE, verbose_name='Pessoa fisica')
     class Meta:    
         verbose_name ='Acessibilidade'
 

@@ -2,6 +2,7 @@ from django.db import models
 from curriculo.choices import *
 from django.utils import timezone
 import datetime
+from usuarios.models import PessoaFisica
 
 # Create your models here.
 class Competencia(models.Model):
@@ -21,6 +22,8 @@ class Competencia(models.Model):
     nivel_informatica = models.CharField(max_length=100, choices=informatica, verbose_name='Nivel de informatica')
     lingua_estrangeira = models.BooleanField(verbose_name='Lingua Estrangeira')
     lingua = models.TextField()
+    pessoa_fisica = models.ForeignKey(PessoaFisica, on_delete=models.CASCADE, verbose_name='Pessoa fisica')
+
 
     def __str__(self):
         return self.objetivo
