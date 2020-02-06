@@ -5,6 +5,10 @@
 </div>
 
 <div class='card-body'>
+    {% if msg %}
+        <h3>{{msg}}</h3>
+        <a href="/dados/pj/lista"><button class='btn btn-success'>Ver dados</button></a>
+    {% endif %}
     <form method="POST">
         {% csrf_token %}
         
