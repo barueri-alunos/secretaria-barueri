@@ -2,17 +2,24 @@
 {% block body %}
 
     {% for pj in lista_pj %}
-    <h3>{{pj.nome_fantasia}}</h3>
-    <p>Razão social {{pj.razao_social}}</p>
-    <p>Cnpj {{pj.cnpj}}</p>
-    <p>Contato Empresa {{pj.contato_empresa}}</p>
-    <p>Ramo Atividade {{pj.ramo_atividade}}</p>
-    <p>Numero Funcinarios {{pj.numero_funcionario}}</p>
-    <p>Numero Pcds {{pj.numero_pcds}}</p>
-    <div>
+    <div class="card-header">
+        <h3>{{pj.nome_fantasia}}</h3>
+    </div>
+    <div class="card-body">
+        
+        <p>Razão social: {{pj.razao_social}}</p>
+        <p>Cnpj: {{pj.cnpj}}</p>
+        <p>Contato Empresa: {{pj.contato_empresa}}</p>
+        <p>Ramo Atividade: {{pj.ramo_atividade}}</p>
+        <p>Funcinarios:  {{pj.numero_funcionarios}}</p>
+        <p>Numero Pcds:   {{pj.numero_pcds}}</p>
+            
+        
+        <div>
         <a href="/vagas/cadastro/{{pj.pk}}"><button class='btn btn-success'>Cadastrar Vaga</button></a>
         <a href="/dados/pj/editar/{{pj.pk}}"><button class="btn btn-warning">Atualizar Empresa</button></a>
         <a href="/dados/pj/remover/{{pj.pk}}"><button class="btn btn-danger">Remover Empresa</button></a>
     </div>
+</div>
     {% endfor %}    
 {% endblock body %}
