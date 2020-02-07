@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from usuarios.forms import *
 from usuarios.models import *
 from vaga.models import Vaga
+from curriculo.forms import CompetenciaForm
 
 # Create your views here.
 

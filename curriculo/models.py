@@ -21,7 +21,7 @@ class Competencia(models.Model):
     cursos_extras = models.CharField(max_length=255, verbose_name='Cursos extras')
     nivel_de_leitura = models.CharField(max_length=100, choices=leitura, verbose_name='Nivel de leitura')
     nivel_informatica = models.CharField(max_length=255)
-    word_nivel = models.CharField(max_length=100, choices=leitura, verbose_name='Word')
+    word_nivel = models.CharField(max_length=100, choices=word, verbose_name='Word')
     excel_nivel = models.CharField(max_length=100, choices=excel, verbose_name='Excel')
     pptx_nivel = models.CharField(max_length=100, choices=power_point, verbose_name='Power Point')
     internet_nivel = models.CharField(max_length=100, choices=internet, verbose_name='Internet')
