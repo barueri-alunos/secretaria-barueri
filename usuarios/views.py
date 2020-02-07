@@ -29,21 +29,28 @@ def cadastrar_empresa(request):
 def cadastrar_pessoa_fisica(request):
     form_pf = PessoaFisicaForm(request.POST or None)
     form_endereco = EnderecoForm(request.POST or None)
+    form_acess = AcessibilidadeForm(request.POST or None)
     args ={
         'form_pf':form_pf,
-        'form_endereco':form_endereco
+        'form_endereco':form_endereco,
+        'form_acess': form_acess,
     }
  
     if form_pf.is_valid() and form_endereco.is_valid():
         pessoa_fisica = form_pf.save()
         endereco = form_endereco.save(commit=False)
+        acessibilidade = form_acess.save(commit=False)
+        
         endereco.usuario = pessoa_fisica
+        acessibilidade = pessoa_fisica
+        
         endereco.save()
+        acessibilidade.save()
+
         args = {
-            'form':form_pf,
             'msg':'O cadastro foi realizado com sucesso'
         }
-        return redirect('/dados/cadastro/pf/acessibilidade')
+        return render(request, 'cadastro_pf.html', args)
     return render(request, 'cadastro_pf.html', args)
 
 def detalhes_pessoa_fisica(request, id):
