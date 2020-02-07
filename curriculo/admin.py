@@ -1,3 +1,4 @@
 from django.contrib import admin
+from curriculo.models import Competencia
 
-# Register your models here.
+admin.site.register(Competencia)
