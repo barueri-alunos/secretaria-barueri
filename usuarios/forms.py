@@ -77,8 +77,7 @@ class AcessibilidadeForm(forms.ModelForm):
         fields = [
             'outros_tipos_deficiencia', 
             'tipo_deficiencia', 
-            'cid', 
-            'pessoa_fisica'
+            'cid'
             ]
 
 class Avaliacao_SecretariaForm(forms.ModelForm):
