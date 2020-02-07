@@ -99,7 +99,7 @@ def acessibilidade_cadastro(request):
             'msg':'O cadastro foi realizado com sucesso'
 
         }
-        return render(request,'acessibilidade.html',args)
+        return redirect('/curriculo/cadastrar')
     args ={'form':form}
     return render(request,'acessibilidade.html',args)
 
