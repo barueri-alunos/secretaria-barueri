@@ -3,13 +3,17 @@
 {% block body %}
     {% if msg %}
         <h1>{{msg}}</h1>
-        {% endif%}
+        <a href="/" >Voltar para a Home</a>
+        <a href="/vagas/lista/">Visualizar Vagas</a>
+    {% endif%}
+    {% if form %}
         <p>Coloque suas competências</p>
         <form method="POST">
             {% csrf_token %}
             {{form.as_p}}
             <button>salvar</button>             
-        </form>     
+        </form>
+        {% endif%}  
 {% endblock %}
 
 
