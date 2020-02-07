@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    {% for pf in pf_list %}
+    <div class="card-header">
+        <h3>{{pf.first_name}} {{pf.last_name}}</h3>
+    </div>
+    <div class="card-body">
+        
+        <p>Genero: {{pf.genero}}</p>
+        <p>Estado Civel: {{pf.estado_civil}}</p>
+        <p>Celular: {{pj.celular}}</p>
+        <p>Telefone Fixo: {{pf.telefone_fixo}}</p>
+        
+        <div>
+        <a href="editar/{{pf.id}}"><button class="btn btn-warning">Atualizar Cadastro</button></a>
+        <a href="remover/{{pf.id}}"><button class="btn btn-danger">Remover Cadastro</button></a>
+    </div>
+</div>
+    {% endfor %}    
+{% endblock body %}

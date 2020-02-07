@@ -13,4 +13,5 @@ urlpatterns = [
     path('pj/editar/<int:id>', editar_empresa),
     path('pj/remover/<int:id>', remover_empresa),
     path('pj/lista', lista_pj),
+    path('pf/lista', listar_pf),
 ]

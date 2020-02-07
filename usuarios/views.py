@@ -83,6 +83,14 @@ def atualizar_pessoa_fisica(request, id):
             }
     return render(request, 'atualizar_pf.html', args)
 
+def listar_pf(request):
+    pf_list = PessoaFisica.objects.all()
+
+    args = {
+        'pf_list':pf_list
+    }
+    return render(request, 'lista_pf.html', args)
+
 def deletar_pessoa_fisica(request, id):
     pf = PessoaFisica.objects.get(pk=id)
     pf.delete()
