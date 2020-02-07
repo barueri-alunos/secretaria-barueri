@@ -51,13 +51,15 @@
             {% endif %}
             <div class="form-row">
                 {% for form in form_acess%}
-                    <div class="form-group {% if form.name == 'estado' or form.name == 'cidade' or form.name == 'numero' %} col {% elif form.name == 'cep' %} col-7 {% else %} col-md-6 {% endif %}">
+                {% if form.name != 'pessoa_fisica' %}    
+                <div class="form-group {% if form.name == 'estado' or form.name == 'cidade' or form.name == 'numero' %} col {% elif form.name == 'cep' %} col-7 {% else %} col-md-6 {% endif %}">
                         <label for="inputEmail4">{% if form.name == 'estado' %} Estado {% else %} {{form.label}} {% endif %}</label>
                         {{form}}
                         {% for error in form.errors %}
                         <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
                         {% endfor %}
                     </div>
+                    {% endif %}
                 {% endfor %}
                 </div>
             
