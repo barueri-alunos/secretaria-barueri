@@ -1,16 +1,33 @@
 {% extends 'base.html' %}
 {% block body %}
-{% if msg %}
-<h3>{{msg}}</h3>
-<a href="/"><button class='btn btn-success'>Voltar para Home</button></a>    
-{% endif %}
 
-{% if form %}
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button class='btn btn-btn btn-warning'>Atualizar Cadastro</button>
-</form>
-{% endif %}
-
+<div class="card-header">
+    Atualizar Cadastro
+</div>
+<div class="card-body">
+    {% if msg %}
+    <div class="p-3 mb-2 bg-success text-white">{{msg}}</div>
+    <a href="/"><button class='btn btn-success'>Voltar para Home</button></a>
+    {% endif %}
+    
+    {% if form %}
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            {% for f in form %}
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">{{f.label}}</label>
+                {{f}}
+                {% for error in f.errors %}
+                    <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <button class='btn btn-btn btn-warning'>Atualizar Cadastro</button>
+    </form>
+    {% endif %}
+</div>
 {% endblock body %}
