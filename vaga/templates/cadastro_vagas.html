@@ -17,12 +17,11 @@
             <div class="form-group col-md-6">
                 <label for="inputEmail4">{{f.label}}</label>
                 {{f}}
-                {% for error in form.errors %}
+                {% for error in f.errors %}
                 <div class="p-3 mb-2 bg-danger text-white">{{error}}</div>
                 {% endfor %}
             </div>
         {% endfor %}
-    
     </div>
 
     <button class='btn btn-success'>Enviar Cadastro</button>
