@@ -78,7 +78,7 @@ class AcessibilidadeForm(forms.ModelForm):
             'outros_tipos_deficiencia', 
             'tipo_deficiencia', 
             'cid',
-            'pessoa_fisica'
+           
         ]
 
 class Avaliacao_SecretariaForm(forms.ModelForm):
