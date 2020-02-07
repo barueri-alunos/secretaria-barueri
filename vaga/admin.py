@@ -10,3 +10,4 @@ class VagasAdmin(admin.ModelAdmin, ExportCsvMixin):
     
 # Register your models here.
 admin.site.register(Vaga)
+admin.site.register(Detalhes)

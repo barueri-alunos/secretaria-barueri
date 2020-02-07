@@ -18,7 +18,7 @@ class Vaga(models.Model):
     beneficios = models.CharField(max_length=255, verbose_name='Quais os benefícios')
     escolaridade = models.CharField(max_length=6, choices=escolaridade_minima, verbose_name='Escolaridade mínima' )
     data_abertura = models.DateField(verbose_name='Data de abertura da vaga')
-    detalhes = models.TextField(verbose_name='Detalhes sobre a vaga')
+    detalhes_vaga = models.TextField(verbose_name='Detalhes sobre a vaga')
     empresa = models.ForeignKey(PessoaJuridica, null=True, on_delete=models.CASCADE)
     ativo = models.BooleanField(default=True)
     criado_em = models.DateField(default= timezone.now, verbose_name = "Criado em")
@@ -28,7 +28,7 @@ class Vaga(models.Model):
 
 
 class Detalhes(models.Model):
-    posicao = models.ForeignKey(Vaga, null=True, on_delete=models.CASCADE, related_name='Vagas')
+    posicao = models.ForeignKey(Vaga, null=True, on_delete=models.CASCADE)
     conhecimento_tecnico = models.CharField(max_length=255, verbose_name='Conhecimentos técnicos')
     conhecimento_informatica = models.CharField(max_length=100, verbose_name='Conhecimento em informatica')
     carregar_peso = models.BooleanField(default=False, verbose_name='Carregará peso ?', choices=resposta)
