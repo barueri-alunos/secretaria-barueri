@@ -57,8 +57,6 @@ class Acessibilidade(models.Model):
     tecnologia = models.BooleanField(default=False ,verbose_name='Necessita de Tecnologia Assistiva para o Trabalho? Qual?',choices=resposta)
     pessoa_fisica = models.ForeignKey(PessoaFisica, on_delete=models.CASCADE, verbose_name='Pessoa fisica')
         
-    class Meta:    
-        verbose_name ='Acessibilidade'
 
 class Avaliacao_Secretaria(models.Model):
     data_da_avaliacao = models.DateField(max_length=10, verbose_name='Data de avaliação')

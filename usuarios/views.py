@@ -62,7 +62,7 @@ def detalhes_pessoa_fisica(request, id):
 
 def atualizar_pessoa_fisica(request, id):
     pf = PessoaFisica.objects.get(pk = id)
-    acc = pf.acessibilidade_set.first()
+    acc = pf.acessibilidade_set.all().first()
     cpt = pf.competencia_set.first()
     form_pf = PessoaFisicaForm(request.POST or None, instance = pf)
     form_acc = AcessibilidadeForm(request.POST or None, instance = acc)
@@ -76,9 +76,17 @@ def atualizar_pessoa_fisica(request, id):
             }  
 
     if form_pf.is_valid() and form_acc.is_valid() and form_cpt.is_valid():
-        form_pf.save()
-        form_acc.save()
-        form_cpt.save()
+        pf_obj = form_pf.save()
+        
+        acc_obj = form_acc.save(commit=False)
+        acc.pessoa_fisica = pf_obj
+        
+        cpt_obj = form_cpt.save(commit=False)
+        cpt_obj.pessoa = pf_obj
+
+        acc_obj.save()
+        cpt_obj.save()
+        
         args = {
             'msg': 'Cadastro atualizado com sucesso'
             }
